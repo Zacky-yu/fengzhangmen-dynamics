@@ -1,0 +1,1198 @@
+{
+  "sectors": [
+    {
+      "sector_name": "保险",
+      "short_name": "保险",
+      "industry_code": "J68",
+      "avg_score": 63.3,
+      "judgment": "强势",
+      "judgment_text": "板块强势 - 多只成分股多头排列",
+      "stock_count": 6,
+      "total_stocks": 6,
+      "score_distribution": {
+        "buy": 6,
+        "neutral": 0,
+        "sell": 0
+      },
+      "avg_change_pct": 4.16,
+      "up_stocks": 6,
+      "down_stocks": 0,
+      "leaders": [
+        {
+          "name": "新华保险",
+          "code": "601336",
+          "score": 90,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "中国人寿",
+          "code": "601628",
+          "score": 90,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "中国人保",
+          "code": "601319",
+          "score": 75,
+          "judgment": "strong_buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "中粮资本",
+          "code": "002423",
+          "score": 45,
+          "judgment": "buy"
+        },
+        {
+          "name": "中国平安",
+          "code": "601318",
+          "score": 40,
+          "judgment": "buy"
+        },
+        {
+          "name": "中国太保",
+          "code": "601601",
+          "score": 40,
+          "judgment": "buy"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块评分63.3，多头氛围浓厚",
+          "板块内100%个股偏多",
+          "龙头新华保险强势(90分)",
+          "底背离: 新华保险, 中国人寿"
+        ],
+        "sell": [],
+        "info": [
+          "6/6个股上涨"
+        ],
+        "warning": []
+      },
+      "divergence_stocks": [
+        "新华保险",
+        "中国人寿"
+      ]
+    },
+    {
+      "sector_name": "医药/创新药",
+      "short_name": "医药",
+      "industry_code": "C27",
+      "avg_score": 48.6,
+      "judgment": "强势",
+      "judgment_text": "板块强势 - 多只成分股多头排列",
+      "stock_count": 7,
+      "total_stocks": 308,
+      "score_distribution": {
+        "buy": 7,
+        "neutral": 0,
+        "sell": 0
+      },
+      "avg_change_pct": 1.42,
+      "up_stocks": 6,
+      "down_stocks": 1,
+      "leaders": [
+        {
+          "name": "太极集团",
+          "code": "600129",
+          "score": 70,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "ST金花",
+          "code": "600080",
+          "score": 50,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "华润双鹤",
+          "code": "600062",
+          "score": 45,
+          "judgment": "buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "同仁堂",
+          "code": "600085",
+          "score": 45,
+          "judgment": "buy"
+        },
+        {
+          "name": "中牧股份",
+          "code": "600195",
+          "score": 45,
+          "judgment": "buy"
+        },
+        {
+          "name": "天坛生物",
+          "code": "600161",
+          "score": 40,
+          "judgment": "buy"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块评分48.6，多头氛围浓厚",
+          "板块内100%个股偏多",
+          "龙头太极集团强势(70分)",
+          "底背离: ST金花"
+        ],
+        "sell": [],
+        "info": [
+          "6/7个股上涨"
+        ],
+        "warning": []
+      },
+      "divergence_stocks": [
+        "ST金花"
+      ]
+    },
+    {
+      "sector_name": "银行",
+      "short_name": "银行",
+      "industry_code": "J66",
+      "avg_score": 46.4,
+      "judgment": "强势",
+      "judgment_text": "板块强势 - 多只成分股多头排列",
+      "stock_count": 7,
+      "total_stocks": 45,
+      "score_distribution": {
+        "buy": 7,
+        "neutral": 0,
+        "sell": 0
+      },
+      "avg_change_pct": 1.84,
+      "up_stocks": 7,
+      "down_stocks": 0,
+      "leaders": [
+        {
+          "name": "新力金融",
+          "code": "600318",
+          "score": 55,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "浦发银行",
+          "code": "600000",
+          "score": 45,
+          "judgment": "buy"
+        },
+        {
+          "name": "华夏银行",
+          "code": "600015",
+          "score": 45,
+          "judgment": "buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "招商银行",
+          "code": "600036",
+          "score": 45,
+          "judgment": "buy"
+        },
+        {
+          "name": "江苏金租",
+          "code": "600901",
+          "score": 45,
+          "judgment": "buy"
+        },
+        {
+          "name": "无锡银行",
+          "code": "600908",
+          "score": 45,
+          "judgment": "buy"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块评分46.4，多头氛围浓厚",
+          "板块内100%个股偏多",
+          "龙头新力金融强势(55分)",
+          "底背离: 新力金融"
+        ],
+        "sell": [],
+        "info": [
+          "7/7个股上涨"
+        ],
+        "warning": []
+      },
+      "divergence_stocks": [
+        "新力金融"
+      ]
+    },
+    {
+      "sector_name": "电力",
+      "short_name": "电力",
+      "industry_code": "D44",
+      "avg_score": 46.4,
+      "judgment": "强势",
+      "judgment_text": "板块强势 - 多只成分股多头排列",
+      "stock_count": 7,
+      "total_stocks": 94,
+      "score_distribution": {
+        "buy": 6,
+        "neutral": 1,
+        "sell": 0
+      },
+      "avg_change_pct": 5.71,
+      "up_stocks": 7,
+      "down_stocks": 0,
+      "leaders": [
+        {
+          "name": "华电国际",
+          "code": "600027",
+          "score": 65,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "浙江新能",
+          "code": "600032",
+          "score": 60,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "华能国际",
+          "code": "600011",
+          "score": 50,
+          "judgment": "strong_buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "上海电力",
+          "code": "600021",
+          "score": 45,
+          "judgment": "buy"
+        },
+        {
+          "name": "华能水电",
+          "code": "600025",
+          "score": 45,
+          "judgment": "buy"
+        },
+        {
+          "name": "浙能电力",
+          "code": "600023",
+          "score": 10,
+          "judgment": "neutral"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块评分46.4，多头氛围浓厚",
+          "板块内85%个股偏多",
+          "龙头华电国际强势(65分)",
+          "底背离: 华电国际, 浙江新能"
+        ],
+        "sell": [],
+        "info": [
+          "7/7个股上涨"
+        ],
+        "warning": []
+      },
+      "divergence_stocks": [
+        "华电国际",
+        "浙江新能"
+      ]
+    },
+    {
+      "sector_name": "建筑/基建",
+      "short_name": "建筑",
+      "industry_code": "E48",
+      "avg_score": 40.0,
+      "judgment": "强势",
+      "judgment_text": "板块强势 - 多只成分股多头排列",
+      "stock_count": 7,
+      "total_stocks": 66,
+      "score_distribution": {
+        "buy": 7,
+        "neutral": 0,
+        "sell": 0
+      },
+      "avg_change_pct": -0.94,
+      "up_stocks": 4,
+      "down_stocks": 3,
+      "leaders": [
+        {
+          "name": "浦东建设",
+          "code": "600284",
+          "score": 55,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "空港股份",
+          "code": "600463",
+          "score": 55,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "上海建工",
+          "code": "600170",
+          "score": 40,
+          "judgment": "buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "ST龙元",
+          "code": "600491",
+          "score": 40,
+          "judgment": "buy"
+        },
+        {
+          "name": "四川路桥",
+          "code": "600039",
+          "score": 25,
+          "judgment": "buy"
+        },
+        {
+          "name": "中船科技",
+          "code": "600072",
+          "score": 25,
+          "judgment": "buy"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块评分40.0，多头氛围浓厚",
+          "板块内100%个股偏多",
+          "龙头浦东建设强势(55分)",
+          "底背离: 中船科技, 浦东建设, 空港股份"
+        ],
+        "sell": [],
+        "info": [],
+        "warning": []
+      },
+      "divergence_stocks": [
+        "中船科技",
+        "浦东建设",
+        "空港股份"
+      ]
+    },
+    {
+      "sector_name": "房地产",
+      "short_name": "房地产",
+      "industry_code": "K70",
+      "avg_score": 37.1,
+      "judgment": "强势",
+      "judgment_text": "板块强势 - 多只成分股多头排列",
+      "stock_count": 7,
+      "total_stocks": 88,
+      "score_distribution": {
+        "buy": 5,
+        "neutral": 2,
+        "sell": 0
+      },
+      "avg_change_pct": -0.19,
+      "up_stocks": 5,
+      "down_stocks": 2,
+      "leaders": [
+        {
+          "name": "香江控股",
+          "code": "600162",
+          "score": 70,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "保利发展",
+          "code": "600048",
+          "score": 55,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "中国国贸",
+          "code": "600007",
+          "score": 45,
+          "judgment": "buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "衢州发展",
+          "code": "600208",
+          "score": 25,
+          "judgment": "buy"
+        },
+        {
+          "name": "大名城",
+          "code": "600094",
+          "score": 10,
+          "judgment": "neutral"
+        },
+        {
+          "name": "卧龙新能",
+          "code": "600173",
+          "score": 10,
+          "judgment": "neutral"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块评分37.1，多头氛围浓厚",
+          "板块内71%个股偏多",
+          "龙头香江控股强势(70分)",
+          "底背离: 保利发展, 衢州发展"
+        ],
+        "sell": [],
+        "info": [
+          "5/7个股上涨"
+        ],
+        "warning": []
+      },
+      "divergence_stocks": [
+        "保利发展",
+        "衢州发展"
+      ]
+    },
+    {
+      "sector_name": "白酒/食品饮料",
+      "short_name": "白酒",
+      "industry_code": "C15",
+      "avg_score": 30.7,
+      "judgment": "强势",
+      "judgment_text": "板块强势 - 多只成分股多头排列",
+      "stock_count": 7,
+      "total_stocks": 47,
+      "score_distribution": {
+        "buy": 6,
+        "neutral": 0,
+        "sell": 1
+      },
+      "avg_change_pct": 0.86,
+      "up_stocks": 6,
+      "down_stocks": 1,
+      "leaders": [
+        {
+          "name": "重庆啤酒",
+          "code": "600132",
+          "score": 55,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "古越龙山",
+          "code": "600059",
+          "score": 40,
+          "judgment": "buy"
+        },
+        {
+          "name": "*ST尼雅",
+          "code": "600084",
+          "score": 40,
+          "judgment": "buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "伊力特",
+          "code": "600197",
+          "score": 40,
+          "judgment": "buy"
+        },
+        {
+          "name": "金种子酒",
+          "code": "600199",
+          "score": 40,
+          "judgment": "buy"
+        },
+        {
+          "name": "*ST椰岛",
+          "code": "600238",
+          "score": -40,
+          "judgment": "sell"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块评分30.7，多头氛围浓厚",
+          "板块内85%个股偏多",
+          "龙头重庆啤酒强势(55分)",
+          "底背离: 重庆啤酒"
+        ],
+        "sell": [],
+        "info": [
+          "6/7个股上涨"
+        ],
+        "warning": [
+          "板块分化：6只强势 vs 1只弱势"
+        ]
+      },
+      "divergence_stocks": [
+        "重庆啤酒"
+      ]
+    },
+    {
+      "sector_name": "证券",
+      "short_name": "证券",
+      "industry_code": "J67",
+      "avg_score": 22.9,
+      "judgment": "偏强",
+      "judgment_text": "板块偏强 - 关注领涨个股",
+      "stock_count": 7,
+      "total_stocks": 56,
+      "score_distribution": {
+        "buy": 4,
+        "neutral": 2,
+        "sell": 1
+      },
+      "avg_change_pct": 1.38,
+      "up_stocks": 6,
+      "down_stocks": 1,
+      "leaders": [
+        {
+          "name": "西南证券",
+          "code": "600369",
+          "score": 90,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "湘财股份",
+          "code": "600095",
+          "score": 50,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "国投资本",
+          "code": "600061",
+          "score": 40,
+          "judgment": "buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "中信证券",
+          "code": "600030",
+          "score": -5,
+          "judgment": "neutral"
+        },
+        {
+          "name": "国金证券",
+          "code": "600109",
+          "score": -10,
+          "judgment": "neutral"
+        },
+        {
+          "name": "*ST九鼎",
+          "code": "600053",
+          "score": -45,
+          "judgment": "sell"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块评分22.9，多头氛围浓厚",
+          "板块内57%个股偏多",
+          "龙头西南证券强势(90分)",
+          "底背离: 国投资本, 西南证券"
+        ],
+        "sell": [],
+        "info": [
+          "6/7个股上涨"
+        ],
+        "warning": [
+          "板块分化：4只强势 vs 1只弱势"
+        ]
+      },
+      "divergence_stocks": [
+        "国投资本",
+        "西南证券"
+      ]
+    },
+    {
+      "sector_name": "新能源车/汽车",
+      "short_name": "新能源车",
+      "industry_code": "C36",
+      "avg_score": 19.3,
+      "judgment": "偏强",
+      "judgment_text": "板块偏强 - 关注领涨个股",
+      "stock_count": 7,
+      "total_stocks": 197,
+      "score_distribution": {
+        "buy": 5,
+        "neutral": 0,
+        "sell": 2
+      },
+      "avg_change_pct": 1.7,
+      "up_stocks": 5,
+      "down_stocks": 2,
+      "leaders": [
+        {
+          "name": "东风股份",
+          "code": "600006",
+          "score": 55,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "东风科技",
+          "code": "600081",
+          "score": 50,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "宇通客车",
+          "code": "600066",
+          "score": 45,
+          "judgment": "buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "长春一东",
+          "code": "600148",
+          "score": 25,
+          "judgment": "buy"
+        },
+        {
+          "name": "福田汽车",
+          "code": "600166",
+          "score": -40,
+          "judgment": "sell"
+        },
+        {
+          "name": "东安动力",
+          "code": "600178",
+          "score": -40,
+          "judgment": "sell"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块内71%个股偏多",
+          "龙头东风股份强势(55分)",
+          "底背离: 东风股份, 长春一东"
+        ],
+        "sell": [],
+        "info": [
+          "5/7个股上涨"
+        ],
+        "warning": [
+          "板块分化：4只强势 vs 2只弱势"
+        ]
+      },
+      "divergence_stocks": [
+        "东风股份",
+        "长春一东"
+      ]
+    },
+    {
+      "sector_name": "计算机/AI",
+      "short_name": "AI/计算机",
+      "industry_code": "I65",
+      "avg_score": 11.4,
+      "judgment": "偏强",
+      "judgment_text": "板块偏强 - 关注领涨个股",
+      "stock_count": 7,
+      "total_stocks": 334,
+      "score_distribution": {
+        "buy": 5,
+        "neutral": 0,
+        "sell": 2
+      },
+      "avg_change_pct": -0.19,
+      "up_stocks": 4,
+      "down_stocks": 3,
+      "leaders": [
+        {
+          "name": "国电南瑞",
+          "code": "600406",
+          "score": 65,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "国网信通",
+          "code": "600131",
+          "score": 50,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "航天信息",
+          "code": "600271",
+          "score": 25,
+          "judgment": "buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "*ST湘邮",
+          "code": "600476",
+          "score": 20,
+          "judgment": "buy"
+        },
+        {
+          "name": "华胜天成",
+          "code": "600410",
+          "score": -45,
+          "judgment": "sell"
+        },
+        {
+          "name": "ST信通",
+          "code": "600289",
+          "score": -60,
+          "judgment": "strong_sell"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块内71%个股偏多",
+          "龙头国电南瑞强势(65分)",
+          "底背离: 航天信息, 国电南瑞, 金证股份"
+        ],
+        "sell": [],
+        "info": [],
+        "warning": [
+          "板块分化：2只强势 vs 2只弱势"
+        ]
+      },
+      "divergence_stocks": [
+        "航天信息",
+        "国电南瑞",
+        "金证股份",
+        "*ST湘邮"
+      ]
+    },
+    {
+      "sector_name": "有色/稀土",
+      "short_name": "有色",
+      "industry_code": "C32",
+      "avg_score": 10.0,
+      "judgment": "偏强",
+      "judgment_text": "板块偏强 - 关注领涨个股",
+      "stock_count": 7,
+      "total_stocks": 87,
+      "score_distribution": {
+        "buy": 3,
+        "neutral": 3,
+        "sell": 1
+      },
+      "avg_change_pct": -1.62,
+      "up_stocks": 3,
+      "down_stocks": 4,
+      "leaders": [
+        {
+          "name": "南山铝业",
+          "code": "600219",
+          "score": 55,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "华阳新材",
+          "code": "600281",
+          "score": 50,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "创新新材",
+          "code": "600361",
+          "score": 40,
+          "judgment": "buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "鑫科材料",
+          "code": "600255",
+          "score": -10,
+          "judgment": "neutral"
+        },
+        {
+          "name": "江西铜业",
+          "code": "600362",
+          "score": -15,
+          "judgment": "neutral"
+        },
+        {
+          "name": "北方稀土",
+          "code": "600111",
+          "score": -40,
+          "judgment": "sell"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "龙头南山铝业强势(55分)",
+          "底背离: 南山铝业, 华阳新材"
+        ],
+        "sell": [],
+        "info": [],
+        "warning": [
+          "板块分化：3只强势 vs 1只弱势"
+        ]
+      },
+      "divergence_stocks": [
+        "南山铝业",
+        "华阳新材"
+      ]
+    },
+    {
+      "sector_name": "机械/装备",
+      "short_name": "机械",
+      "industry_code": "C35",
+      "avg_score": 5.0,
+      "judgment": "中性",
+      "judgment_text": "板块中性 - 等待方向选择",
+      "stock_count": 7,
+      "total_stocks": 360,
+      "score_distribution": {
+        "buy": 4,
+        "neutral": 0,
+        "sell": 3
+      },
+      "avg_change_pct": -0.68,
+      "up_stocks": 3,
+      "down_stocks": 4,
+      "leaders": [
+        {
+          "name": "三一重工",
+          "code": "600031",
+          "score": 45,
+          "judgment": "buy"
+        },
+        {
+          "name": "万东医疗",
+          "code": "600055",
+          "score": 40,
+          "judgment": "buy"
+        },
+        {
+          "name": "ST太重",
+          "code": "600169",
+          "score": 40,
+          "judgment": "buy"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "北方股份",
+          "code": "600262",
+          "score": -40,
+          "judgment": "sell"
+        },
+        {
+          "name": "光电股份",
+          "code": "600184",
+          "score": -45,
+          "judgment": "sell"
+        },
+        {
+          "name": "ST标准",
+          "code": "600302",
+          "score": -45,
+          "judgment": "sell"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "板块内57%个股偏多"
+        ],
+        "sell": [
+          "板块内42%个股偏空"
+        ],
+        "info": [],
+        "warning": [
+          "板块分化：4只强势 vs 3只弱势"
+        ]
+      },
+      "divergence_stocks": []
+    },
+    {
+      "sector_name": "军工/航天",
+      "short_name": "军工",
+      "industry_code": "C37",
+      "avg_score": -5.7,
+      "judgment": "中性",
+      "judgment_text": "板块中性 - 等待方向选择",
+      "stock_count": 7,
+      "total_stocks": 83,
+      "score_distribution": {
+        "buy": 2,
+        "neutral": 1,
+        "sell": 4
+      },
+      "avg_change_pct": 1.16,
+      "up_stocks": 5,
+      "down_stocks": 2,
+      "leaders": [
+        {
+          "name": "中直股份",
+          "code": "600038",
+          "score": 55,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "林海股份",
+          "code": "600099",
+          "score": 55,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "中航机载",
+          "code": "600372",
+          "score": 10,
+          "judgment": "neutral"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "洪都航空",
+          "code": "600316",
+          "score": -40,
+          "judgment": "sell"
+        },
+        {
+          "name": "航发科技",
+          "code": "600391",
+          "score": -40,
+          "judgment": "sell"
+        },
+        {
+          "name": "中国动力",
+          "code": "600482",
+          "score": -40,
+          "judgment": "sell"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "龙头中直股份强势(55分)",
+          "底背离: 中直股份, 林海股份"
+        ],
+        "sell": [
+          "板块内57%个股偏空"
+        ],
+        "info": [
+          "5/7个股上涨"
+        ],
+        "warning": [
+          "板块分化：2只强势 vs 4只弱势"
+        ]
+      },
+      "divergence_stocks": [
+        "中直股份",
+        "林海股份"
+      ]
+    },
+    {
+      "sector_name": "光伏/电气设备",
+      "short_name": "光伏",
+      "industry_code": "C38",
+      "avg_score": -12.1,
+      "judgment": "偏弱",
+      "judgment_text": "板块偏弱 - 注意风险",
+      "stock_count": 7,
+      "total_stocks": 333,
+      "score_distribution": {
+        "buy": 1,
+        "neutral": 3,
+        "sell": 3
+      },
+      "avg_change_pct": -1.75,
+      "up_stocks": 3,
+      "down_stocks": 4,
+      "leaders": [
+        {
+          "name": "绿能慧充",
+          "code": "600212",
+          "score": 55,
+          "judgment": "strong_buy"
+        },
+        {
+          "name": "长城电工",
+          "code": "600192",
+          "score": 10,
+          "judgment": "neutral"
+        },
+        {
+          "name": "冠城新材",
+          "code": "600067",
+          "score": 5,
+          "judgment": "neutral"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "特变电工",
+          "code": "600089",
+          "score": -40,
+          "judgment": "sell"
+        },
+        {
+          "name": "航天机电",
+          "code": "600151",
+          "score": -40,
+          "judgment": "sell"
+        },
+        {
+          "name": "维科技术",
+          "code": "600152",
+          "score": -60,
+          "judgment": "strong_sell"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "龙头绿能慧充强势(55分)",
+          "底背离: 冠城新材, 绿能慧充"
+        ],
+        "sell": [
+          "板块内42%个股偏空"
+        ],
+        "info": [],
+        "warning": [
+          "板块分化：1只强势 vs 3只弱势"
+        ]
+      },
+      "divergence_stocks": [
+        "冠城新材",
+        "绿能慧充"
+      ]
+    },
+    {
+      "sector_name": "半导体/电子",
+      "short_name": "半导体",
+      "industry_code": "C39",
+      "avg_score": -20.7,
+      "judgment": "偏弱",
+      "judgment_text": "板块偏弱 - 注意风险",
+      "stock_count": 7,
+      "total_stocks": 660,
+      "score_distribution": {
+        "buy": 1,
+        "neutral": 3,
+        "sell": 3
+      },
+      "avg_change_pct": -3.49,
+      "up_stocks": 2,
+      "down_stocks": 5,
+      "leaders": [
+        {
+          "name": "同方股份",
+          "code": "600100",
+          "score": 25,
+          "judgment": "buy"
+        },
+        {
+          "name": "海信视像",
+          "code": "600060",
+          "score": -5,
+          "judgment": "neutral"
+        },
+        {
+          "name": "诺德股份",
+          "code": "600110",
+          "score": -15,
+          "judgment": "neutral"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "中国卫星",
+          "code": "600118",
+          "score": -45,
+          "judgment": "sell"
+        },
+        {
+          "name": "波导股份",
+          "code": "600130",
+          "score": -45,
+          "judgment": "sell"
+        },
+        {
+          "name": "上海贝岭",
+          "code": "600171",
+          "score": -45,
+          "judgment": "sell"
+        }
+      ],
+      "signals": {
+        "buy": [
+          "底背离: 同方股份"
+        ],
+        "sell": [
+          "板块评分-20.7，空头主导",
+          "板块内42%个股偏空",
+          "5/7个股下跌"
+        ],
+        "info": [],
+        "warning": []
+      },
+      "divergence_stocks": [
+        "同方股份"
+      ]
+    },
+    {
+      "sector_name": "化工",
+      "short_name": "化工",
+      "industry_code": "C26",
+      "avg_score": -22.9,
+      "judgment": "偏弱",
+      "judgment_text": "板块偏弱 - 注意风险",
+      "stock_count": 7,
+      "total_stocks": 353,
+      "score_distribution": {
+        "buy": 1,
+        "neutral": 2,
+        "sell": 4
+      },
+      "avg_change_pct": -1.83,
+      "up_stocks": 2,
+      "down_stocks": 5,
+      "leaders": [
+        {
+          "name": "新疆天业",
+          "code": "600075",
+          "score": 40,
+          "judgment": "buy"
+        },
+        {
+          "name": "兴发集团",
+          "code": "600141",
+          "score": -15,
+          "judgment": "neutral"
+        },
+        {
+          "name": "巨化股份",
+          "code": "600160",
+          "score": -15,
+          "judgment": "neutral"
+        }
+      ],
+      "laggards": [
+        {
+          "name": "云天化",
+          "code": "600096",
+          "score": -40,
+          "judgment": "sell"
+        },
+        {
+          "name": "澄星股份",
+          "code": "600078",
+          "score": -45,
+          "judgment": "sell"
+        },
+        {
+          "name": "乐凯胶片",
+          "code": "600135",
+          "score": -45,
+          "judgment": "sell"
+        }
+      ],
+      "signals": {
+        "buy": [],
+        "sell": [
+          "板块评分-22.9，空头主导",
+          "板块内57%个股偏空",
+          "5/7个股下跌"
+        ],
+        "info": [],
+        "warning": [
+          "板块分化：1只强势 vs 4只弱势"
+        ]
+      },
+      "divergence_stocks": []
+    }
+  ],
+  "generated_at": "2026-07-21",
+  "total": 16
+}
