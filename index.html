@@ -1,0 +1,348 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>冯掌门动力学 · 分析体系库</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Noto Sans SC',sans-serif;
+  background:#080b15;color:#e8eaf0;min-height:100vh;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 0% 50%, rgba(236,72,153,0.06), transparent),
+    radial-gradient(ellipse 70% 50% at 100% 50%, rgba(59,130,246,0.06), transparent);
+}
+
+/* Header */
+.header{
+  background:rgba(17,24,39,0.85);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  padding:16px 20px;position:sticky;top:0;z-index:100;
+}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.header-left{display:flex;align-items:center;gap:14px}
+.avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,#ec4899,#6366f1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:700;color:#fff;box-shadow:0 0 20px rgba(236,72,153,0.2);
+}
+.header h1{font-size:18px;font-weight:700;letter-spacing:-0.3px}
+.header .sub{font-size:11px;color:#64748b;margin-top:2px}
+.header-right{display:flex;align-items:center;gap:10px}
+.badge-count{
+  background:rgba(99,102,241,0.15);color:#818cf8;
+  font-size:11px;font-weight:600;padding:3px 10px;border-radius:12px;
+}
+
+/* Hero */
+.hero{
+  max-width:900px;margin:0 auto;padding:28px 20px 20px;
+  text-align:center;
+}
+.hero h2{font-size:26px;font-weight:800;background:linear-gradient(135deg,#e2e8f0,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:#64748b;font-size:14px;margin-top:6px}
+
+/* Stats */
+.stats{max-width:900px;margin:0 auto;padding:0 20px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat-box{background:rgba(17,24,39,0.6);border:1px solid rgba(255,255,255,0.04);border-radius:12px;padding:14px 10px;text-align:center}
+.stat-box .num{font-size:24px;font-weight:700;background:linear-gradient(135deg,#e2e8f0,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-box .lbl{font-size:11px;color:#64748b;margin-top:2px}
+.stat-box .sub2{font-size:10px;color:#475569;margin-top:1px}
+
+/* Content */
+.content{max-width:900px;margin:0 auto;padding:0 20px 40px}
+
+/* Blog tags filter */
+.filter-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.filter-btn{padding:6px 14px;border:1px solid rgba(255,255,255,0.08);border-radius:20px;
+  background:transparent;color:#64748b;font-size:12px;cursor:pointer;
+  transition:all 0.2s;font-family:inherit}
+.filter-btn:hover{background:rgba(99,102,241,0.1);color:#818cf8}
+.filter-btn.active{background:rgba(99,102,241,0.15);border-color:rgba(99,102,241,0.3);color:#818cf8}
+
+/* Video Card */
+.video-card{
+  background:rgba(17,24,39,0.8);border:1px solid rgba(255,255,255,0.04);
+  border-radius:16px;margin-bottom:14px;overflow:hidden;
+  transition:border-color 0.3s,box-shadow 0.3s;
+}
+.video-card:hover{border-color:rgba(99,102,241,0.15);box-shadow:0 4px 24px rgba(0,0,0,0.2)}
+.video-card-header{
+  padding:18px 20px;display:flex;align-items:flex-start;justify-content:space-between;
+  cursor:pointer;user-select:none;gap:12px;
+}
+.video-info{flex:1;min-width:0}
+.video-info .title{font-size:15px;font-weight:600;line-height:1.4}
+.video-info .meta{font-size:11px;color:#475569;margin-top:6px;display:flex;gap:12px;flex-wrap:wrap}
+.video-info .meta span{display:flex;align-items:center;gap:3px}
+.video-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+.tag{border-radius:6px;padding:2px 8px;font-size:10px;font-weight:500}
+.tag-theory{background:rgba(236,72,153,0.12);color:#f472b6}
+.tag-trade{background:rgba(99,102,241,0.12);color:#818cf8}
+.tag-risk{background:rgba(251,146,60,0.12);color:#fb923c}
+.tag-case{background:rgba(52,211,153,0.12);color:#34d399}
+.expand-icon{font-size:12px;color:#475569;transition:transform 0.3s;margin-top:4px;flex-shrink:0}
+.expand-icon.open{transform:rotate(180deg);color:#818cf8}
+
+/* Card Body */
+.video-card-body{display:none;padding:0 20px 20px;border-top:1px solid rgba(255,255,255,0.04)}
+.video-card-body.open{display:block}
+
+.section{margin-top:14px}
+.section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.section-title.theory{color:#f472b6}
+.section-title.trade{color:#818cf8}
+.section-title.risk{color:#fb923c}
+.section-title.case{color:#34d399}
+.section-title.trans{color:#64748b}
+.section-content{font-size:13px;line-height:1.7;color:#c8cce0;white-space:pre-wrap}
+
+/* Transcription */
+.trans-box{
+  background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.04);
+  border-radius:10px;padding:12px;margin-top:8px;
+  font-size:12px;line-height:1.6;color:#64748b;white-space:pre-wrap;
+  max-height:120px;overflow-y:auto;
+}
+.trans-box.expanded{max-height:none}
+.trans-expand{font-size:11px;color:#818cf8;cursor:pointer;margin-top:4px;display:inline-block}
+
+/* Empty State */
+.empty{
+  text-align:center;padding:80px 20px;
+}
+.empty .icon{font-size:56px;margin-bottom:16px;opacity:0.4}
+.empty h3{font-size:18px;font-weight:600;color:#94a3b8;margin-bottom:8px}
+.empty p{font-size:13px;color:#475569;max-width:400px;margin:0 auto;line-height:1.6}
+
+/* Guide */
+.guide{
+  max-width:900px;margin:20px auto 0;padding:0 20px;
+}
+.guide-card{
+  background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.12);
+  border-radius:14px;padding:20px;margin-bottom:40px;
+}
+.guide-card h4{font-size:13px;font-weight:600;color:#818cf8;margin-bottom:10px}
+.guide-card ol{font-size:12px;color:#94a3b8;line-height:1.8;padding-left:16px}
+.guide-card ol li{margin-bottom:4px}
+.guide-card code{background:rgba(0,0,0,0.3);padding:1px 6px;border-radius:4px;font-size:11px;color:#60a5fa}
+
+@media(max-width:640px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .hero h2{font-size:22px}
+  .header h1{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="avatar">冯</div>
+      <div>
+        <h1>冯掌门动力学</h1>
+        <div class="sub">分析技巧体系 · 持续更新</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="badge-count" id="countBadge">0 期</span>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <h2>交易体系拆解库</h2>
+  <p>从每一期视频中提取冯掌门的动力学分析体系 · 自动结构化整理</p>
+</div>
+
+<div class="stats" id="statsBar">
+  <div class="stat-box">
+    <div class="num" id="statVideos">0</div>
+    <div class="lbl">已分析视频</div>
+  </div>
+  <div class="stat-box">
+    <div class="num" id="statMethods">0</div>
+    <div class="lbl">方法论要点</div>
+  </div>
+  <div class="stat-box">
+    <div class="num" id="statIndicators">0</div>
+    <div class="lbl">指标工具</div>
+  </div>
+  <div class="stat-box">
+    <div class="num" id="statCases">0</div>
+    <div class="lbl">实战案例</div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" onclick="setFilter(this,'all')">全部</button>
+    <button class="filter-btn" onclick="setFilter(this,'theory')">📐 动力学理论</button>
+    <button class="filter-btn" onclick="setFilter(this,'trade')">⚡ 交易体系</button>
+    <button class="filter-btn" onclick="setFilter(this,'case')">📌 实战案例</button>
+    <button class="filter-btn" onclick="setFilter(this,'risk')">🛡️ 风控</button>
+  </div>
+  <div id="results"></div>
+  <div class="empty" id="emptyState">
+    <div class="icon">🎯</div>
+    <h3>暂无分析数据</h3>
+    <p>用 Codex 分析冯掌门的视频后，结果会自动出现在这里</p>
+  </div>
+</div>
+
+<div class="guide">
+  <div class="guide-card">
+    <h4>📖 使用说明</h4>
+    <ol>
+      <li>在 Codex 中运行：<code>python scripts/analyze.py --url "抖音链接"</code></li>
+      <li>将转录文本交给 AI 分析，提取冯掌门的动力学体系</li>
+      <li>分析结果自动同步到本看板</li>
+      <li>多看几期后，规律和体系会越来越完整 🚀</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+var DATA_URL = 'data/index.json';
+
+async function loadData() {
+  try {
+    var r = await fetch(DATA_URL + '?' + Date.now());
+    if (!r.ok) return [];
+    var d = await r.json();
+    return d.files || d.videos || [];
+  } catch(e) {
+    return [];
+  }
+}
+
+function countItems(analysis) {
+  if (!analysis) return { methods: 0, inds: 0, cases: 0 };
+  var a = analysis;
+  var m = 0, i = 0, c = 0;
+  if (a.theory) m += a.theory.split(/[。；\n]/).filter(function(s){return s.trim().length>5}).length;
+  if (a.system) m += a.system.split(/[。；\n]/).filter(function(s){return s.trim().length>5}).length;
+  if (a.indicators) i += a.indicators.split(/[,，、\n]/).filter(Boolean).length;
+  if (a.logic) i += a.logic.split(/[。；\n]/).filter(function(s){return s.trim().length>5}).length;
+  if (a.cases) c += (a.cases.match(/\d+[.、．]/g) || []).length;
+  if (c === 0 && a.cases) c = 1;
+  return { methods: Math.max(1, m), inds: Math.max(1, i), cases: Math.max(0, c) };
+}
+
+function buildHTML(v) {
+  var a = v.analysis || {};
+  var hasContent = a.theory || a.system || a.indicators || a.logic || a.risk || a.cases;
+  var tags = [];
+  if (a.theory || a.system) tags.push({ text: '动力学理论', cls: 'tag-theory' });
+  if (a.indicators || a.logic) tags.push({ text: '交易体系', cls: 'tag-trade' });
+  if (a.cases) tags.push({ text: '实战案例', cls: 'tag-case' });
+  if (a.risk) tags.push({ text: '风控', cls: 'tag-risk' });
+
+  var sections = '';
+  if (a.theory) sections += '<div class="section"><div class="section-title theory">🎯 动力学核心理论</div><div class="section-content">' + a.theory + '</div></div>';
+  if (a.system) sections += '<div class="section"><div class="section-title trade">⚡ 交易体系</div><div class="section-content">' + a.system + '</div></div>';
+  if (a.indicators) sections += '<div class="section"><div class="section-title trade">📊 指标运用</div><div class="section-content">' + a.indicators + '</div></div>';
+  if (a.logic) sections += '<div class="section"><div class="section-title trade">🧠 逻辑框架</div><div class="section-content">' + a.logic + '</div></div>';
+  if (a.risk) sections += '<div class="section"><div class="section-title risk">🛡️ 风险控制</div><div class="section-content">' + a.risk + '</div></div>';
+  if (a.cases) sections += '<div class="section"><div class="section-title case">📌 实战案例</div><div class="section-content">' + a.cases + '</div></div>';
+
+  return '<div class="video-card">' +
+    '<div class="video-card-header" onclick="toggleCard(this)">' +
+      '<div class="video-info">' +
+        '<div class="title">' + (v.title || ('第' + (v.id || 'N') + '期')) + '</div>' +
+        '<div class="meta">' +
+          '<span>📅 ' + (v.date || '-') + '</span>' +
+          '<span>📝 ' + (v.transcription ? v.transcription.length + '字' : '') + '</span>' +
+          (v.url ? '<span>🔗 <a href="' + v.url + '" target="_blank" style="color:#818cf8;text-decoration:none">查看原视频</a></span>' : '') +
+        '</div>' +
+        (tags.length ? '<div class="video-tags">' + tags.map(function(t){return '<span class="tag ' + t.cls + '">' + t.text + '</span>'}).join('') + '</div>' : '') +
+      '</div>' +
+      '<span class="expand-icon">▼</span>' +
+    '</div>' +
+    '<div class="video-card-body">' +
+      (hasContent ? sections : '<div style="color:#475569;font-size:13px;padding:10px 0">⏳ 等待 AI 分析完成...</div>') +
+      (v.transcription ? '<div class="section"><div class="section-title trans">🎙️ 转录原文</div><div class="trans-box" id="trans-' + (v.id || '0') + '">' + v.transcription + '</div><span class="trans-expand" onclick="expandTrans(this)">展开全文</span></div>' : '') +
+    '</div>' +
+  '</div>';
+}
+
+var currentFilter = 'all';
+var allVideos = [];
+
+function setFilter(el, f) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+  el.classList.add('active');
+  renderCards();
+}
+
+function hasTag(v, f) {
+  var a = v.analysis || {};
+  switch(f) {
+    case 'all': return true;
+    case 'theory': return !!(a.theory || a.system);
+    case 'trade': return !!(a.indicators || a.logic);
+    case 'case': return !!a.cases;
+    case 'risk': return !!a.risk;
+    default: return true;
+  }
+}
+
+function renderCards() {
+  var container = document.getElementById('results');
+  var empty = document.getElementById('emptyState');
+  var filtered = allVideos.filter(function(v){ return hasTag(v, currentFilter); });
+
+  if (!allVideos.length) {
+    container.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  container.innerHTML = filtered.map(function(v){ return buildHTML(v); }).join('');
+}
+
+async function render() {
+  allVideos = await loadData();
+  document.getElementById('countBadge').textContent = allVideos.length + ' 期';
+
+  var totalM = 0, totalI = 0, totalC = 0;
+  allVideos.forEach(function(v) {
+    var c = countItems(v.analysis);
+    totalM += c.methods;
+    totalI += c.inds;
+    totalC += c.cases;
+  });
+
+  document.getElementById('statVideos').textContent = allVideos.length;
+  document.getElementById('statMethods').textContent = totalM;
+  document.getElementById('statIndicators').textContent = totalI;
+  document.getElementById('statCases').textContent = totalC;
+
+  renderCards();
+}
+
+function toggleCard(header) {
+  var body = header.nextElementSibling;
+  var icon = header.querySelector('.expand-icon');
+  var isOpen = body.classList.contains('open');
+  body.classList.toggle('open');
+  icon.classList.toggle('open');
+}
+
+function expandTrans(el) {
+  var box = el.previousElementSibling;
+  box.classList.toggle('expanded');
+  el.textContent = box.classList.contains('expanded') ? '收起' : '展开全文';
+}
+
+render();
+setInterval(render, 30000);
+</script>
+</body>
+</html>
