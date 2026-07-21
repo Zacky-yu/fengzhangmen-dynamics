@@ -74,27 +74,27 @@
         "中国人寿"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 6,
           "total": 6,
           "detail": "6/6只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 6,
           "total": 6,
           "detail": "6/6只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 6,
           "total": 6,
           "detail": "6/6只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 3,
           "total": 6,
           "detail": "3/6只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 2,
           "total": 6,
           "detail": "2只成分股出现底背离信号"
@@ -416,27 +416,27 @@
         "ST金花"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 1,
           "total": 7,
           "detail": "1/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 1,
           "total": 7,
           "detail": "1只成分股出现底背离信号"
@@ -758,27 +758,27 @@
         "新力金融"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 0,
           "total": 7,
           "detail": "0/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 1,
           "total": 7,
           "detail": "1只成分股出现底背离信号"
@@ -1101,27 +1101,27 @@
         "浙江新能"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 6,
           "total": 7,
           "detail": "6/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 0,
           "total": 7,
           "detail": "0/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 2,
           "total": 7,
           "detail": "2只成分股出现底背离信号"
@@ -1443,27 +1443,27 @@
         "空港股份"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 5,
           "total": 7,
           "detail": "5/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 0,
           "total": 7,
           "detail": "0/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 3,
           "total": 7,
           "detail": "3只成分股出现底背离信号"
@@ -1786,27 +1786,27 @@
         "衢州发展"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 7,
           "total": 7,
           "detail": "7/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 4,
           "total": 7,
           "detail": "4/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 1,
           "total": 7,
           "detail": "1/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 2,
           "total": 7,
           "detail": "2只成分股出现底背离信号"
@@ -2130,27 +2130,27 @@
         "重庆啤酒"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 6,
           "total": 7,
           "detail": "6/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 6,
           "total": 7,
           "detail": "6/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 6,
           "total": 7,
           "detail": "6/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 0,
           "total": 7,
           "detail": "0/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 1,
           "total": 7,
           "detail": "1只成分股出现底背离信号"
@@ -2475,27 +2475,27 @@
         "西南证券"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 3,
           "total": 7,
           "detail": "3/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 3,
           "total": 7,
           "detail": "3/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 4,
           "total": 7,
           "detail": "4/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 4,
           "total": 7,
           "detail": "4/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 2,
           "total": 7,
           "detail": "2只成分股出现底背离信号"
@@ -2819,27 +2819,27 @@
         "长春一东"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 5,
           "total": 7,
           "detail": "5/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 5,
           "total": 7,
           "detail": "5/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 4,
           "total": 7,
           "detail": "4/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 0,
           "total": 7,
           "detail": "0/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 2,
           "total": 7,
           "detail": "2只成分股出现底背离信号"
@@ -3163,27 +3163,27 @@
         "*ST湘邮"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 5,
           "total": 7,
           "detail": "5/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 5,
           "total": 7,
           "detail": "5/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 2,
           "total": 7,
           "detail": "2/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 0,
           "total": 7,
           "detail": "0/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 4,
           "total": 7,
           "detail": "4只成分股出现底背离信号"
@@ -3504,27 +3504,27 @@
         "华阳新材"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 3,
           "total": 7,
           "detail": "3/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 3,
           "total": 7,
           "detail": "3/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 5,
           "total": 7,
           "detail": "5/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 1,
           "total": 7,
           "detail": "1/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 2,
           "total": 7,
           "detail": "2只成分股出现底背离信号"
@@ -3844,27 +3844,27 @@
       },
       "divergence_stocks": [],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 4,
           "total": 7,
           "detail": "4/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 4,
           "total": 7,
           "detail": "4/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 4,
           "total": 7,
           "detail": "4/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 0,
           "total": 7,
           "detail": "0/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 0,
           "total": 7,
           "detail": "0只成分股出现底背离信号"
@@ -4189,27 +4189,27 @@
         "林海股份"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 3,
           "total": 7,
           "detail": "3/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 3,
           "total": 7,
           "detail": "3/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 2,
           "total": 7,
           "detail": "2/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 0,
           "total": 7,
           "detail": "0/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 2,
           "total": 7,
           "detail": "2只成分股出现底背离信号"
@@ -4532,27 +4532,27 @@
         "绿能慧充"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 2,
           "total": 7,
           "detail": "2/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 2,
           "total": 7,
           "detail": "2/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 2,
           "total": 7,
           "detail": "2/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 1,
           "total": 7,
           "detail": "1/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 2,
           "total": 7,
           "detail": "2只成分股出现底背离信号"
@@ -4872,27 +4872,27 @@
         "同方股份"
       ],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 1,
           "total": 7,
           "detail": "1/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 1,
           "total": 7,
           "detail": "1/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 0,
           "total": 7,
           "detail": "0/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 3,
           "total": 7,
           "detail": "3/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 1,
           "total": 7,
           "detail": "1只成分股出现底背离信号"
@@ -5212,27 +5212,27 @@
       },
       "divergence_stocks": [],
       "score_breakdown": {
-        "MACD多头": {
+        "MACD_bull": {
           "count": 1,
           "total": 7,
           "detail": "1/7只成分股DIF>DEA"
         },
-        "MACD红柱": {
+        "MACD_red": {
           "count": 1,
           "total": 7,
           "detail": "1/7只成分股MACD>0"
         },
-        "5日>10日": {
+        "MA5>MA10": {
           "count": 1,
           "total": 7,
           "detail": "1/7只成分股短期多头"
         },
-        "20日>60日": {
+        "MA20>MA60": {
           "count": 2,
           "total": 7,
           "detail": "2/7只成分股中期多头"
         },
-        "底背离": {
+        "divergence": {
           "count": 0,
           "total": 7,
           "detail": "0只成分股出现底背离信号"
