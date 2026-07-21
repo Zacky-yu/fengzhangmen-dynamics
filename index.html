@@ -279,7 +279,7 @@ body{
 </div>
 
 <script>
-var D=[],T='all',autoTimer=null;
+var D=[],T='all',autoTimer=null,RT={},rtTimer=null,rtHistory={};
 
 // ─── Page Navigation ───
 function switchPage(id){
@@ -406,7 +406,7 @@ function sd(idx){
     (brkHtml?'<div class="dsec"><div class="dsec-h">&#128202; 评分明细 <span style="font-size:8px;color:#475569;margin-left:auto">成分股达标率</span></div>'+brkHtml+'</div>':'')+
     (chartSvg?'<div class="dsec"><div class="dsec-h">&#128200; 60日走势</div><div style="text-align:center">'+chartSvg+'</div></div>':'')+
     (sh?'<div class="dsec"><div class="dsec-h">&#127919; 冯掌门信号</div>'+sh+'</div>':'')+
-    lh+gh+dv;
+    lh+gh+dv;setTimeout(function(){var c=document.getElementById('rtCanvas');if(c&&s.short_name&&rtHistory[s.short_name])drawRTChart(c,rtHistory[s.short_name],cc(s.avg_score));},100);
 }
 
 function closeDetail(){document.getElementById('detail').classList.remove('show');document.body.style.overflow=''}
@@ -438,9 +438,65 @@ function loadData(){
   });
 }
 
+// ─── Real-Time Data ───
+function fetchRT(){
+  fetch('/api/realtime?_t='+Date.now()).then(function(r){return r.json()}).then(function(d){
+    if(d.error)return;
+    RT=d.sectors||{};
+    // Update cards with realtime prices
+    var cards=document.querySelectorAll('.sec-card');
+    if(!cards.length)return;
+    D.forEach(function(s,i){
+      var sd=RT[s.short_name];
+      if(!sd||!sd.avg_price)return;
+      // Update stock quotes in the signals
+      var chgEl=cards[i]&&cards[i].querySelector('.rt-chg');
+      if(chgEl){
+        var chg=((sd.avg_price/1)-1)*100;
+        chgEl.textContent=sd.avg_price+' '+(chg>=0?'+':'')+chg.toFixed(2)+'%';
+        chgEl.style.color=chg>=0?'#34d399':'#f87171';
+      }
+      // Track chart history for sectors
+      if(s.short_name){
+        if(!rtHistory[s.short_name])rtHistory[s.short_name]=[];
+        rtHistory[s.short_name].push({t:Date.now(),p:parseFloat(sd.avg_price)});
+        if(rtHistory[s.short_name].length>120)rtHistory[s.short_name].shift();
+      }
+    });
+  }).catch(function(){});
+}
+
+function drawRTChart(canvas, history, color){
+  if(!canvas||!history||history.length<2)return;
+  var ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height;
+  ctx.clearRect(0,0,w,h);
+  var prices=history.map(function(p){return p.p;});
+  var mn=Math.min.apply(null,prices),mx=Math.max.apply(null,prices),rng=mx-mn||1;
+  ctx.beginPath();
+  ctx.strokeStyle=color||'#6366f1';
+  ctx.lineWidth=1.5;
+  prices.forEach(function(p,i){
+    var x=(i/(prices.length-1))*w,y=h-((p-mn)/rng)*(h-4)-2;
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+  // Fill area
+  ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.closePath();
+  ctx.fillStyle=(color||'#6366f1').replace(')','').replace('rgb','rgba').replace('#6366f1','rgba(99,102,241,0.05)');
+  if(!ctx.fillStyle.includes('rgba'))ctx.fillStyle='rgba(99,102,241,0.05)';
+  ctx.fill();
+}
+
+// ─── Init RT ───
+function startRT(){
+  if(rtTimer)clearInterval(rtTimer);
+  fetchRT();
+  rtTimer=setInterval(fetchRT,30000);
+}
 // ─── Init ───
 loadData();
 startAutoRefresh();
+startRT();
 
 (function(){
   var d=document.getElementById('detail'),sx=0;
