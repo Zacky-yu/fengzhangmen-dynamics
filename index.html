@@ -364,7 +364,7 @@ function render(){
     if(s.signals.sell&&s.signals.sell[0])tg+='<span class="sec-tag tag-sell">'+s.signals.sell[0].slice(0,16)+'</span>';
 
     var idx=D.indexOf(s);
-    return'<div class="sec-card '+s3+'" onclick="sd('+idx+')"><div class="sec-top"><span class="sec-rank">#'+(L.indexOf(s)+1)+'</span><span class="sec-name">'+s.short_name+'</span><span class="sec-score '+c2+'">'+v.toFixed(1)+'</span></div><div class="sec-spark">'+sp+'<span class="sec-jg '+jc(s.judgment)+'">'+s.judgment+'</span><span class="sec-chg" style="color:'+cc2+'">'+ch+'</span></div><div class="sec-bar-wrap"><div class="sec-mbar"><div class="sec-mbar-f" style="width:'+p+'%;background:'+c1+'"></div></div></div>'+(dhtml?'<div class="brk-row">'+dhtml+'</div>':'')+(tg?'<div class="sec-tags">'+tg+'</div>':'')+'</div>';
+    return'<div class="sec-card '+s3+'" onclick="sd('+idx+')"><div class="sec-top"><span class="sec-rank">#'+(L.indexOf(s)+1)+'</span><span class="sec-name">'+s.short_name+'</span><span class="sec-score '+c2+'">'+v.toFixed(1)+'</span><span style="font-size:8px;color:#64748b;margin-left:2px">冯</span><span style="font-size:10px;color:'+cc(s.combined_score)+';margin-left:1px">'+s.combined_score.toFixed(1)+'</span><span style="font-size:8px;color:#475569">合</span>'</div><div class="sec-spark">'+sp+'<span class="sec-jg '+jc(s.judgment)+'">'+s.judgment+'</span><span class="sec-chg" style="color:'+cc2+'">'+ch+'</span></div><div class="sec-bar-wrap"><div class="sec-mbar"><div class="sec-mbar-f" style="width:'+p+'%;background:'+c1+'"></div></div></div>'+(dhtml?'<div class="brk-row">'+dhtml+'</div>':'')+(tg?'<div class="sec-tags">'+tg+'</div>':'')+'</div>';
   }).join('');
 }
 
@@ -402,11 +402,28 @@ function sd(idx){
   var dv='';if(s.divergence_stocks&&s.divergence_stocks.length)dv='<div class="dsec"><div class="dsec-h">&#128269; 底背离检测</div><div style="font-size:10px;color:#34d399">'+s.divergence_stocks.join('、')+' 出现底背离</div></div>';
 
   document.getElementById('dtBody').innerHTML=
-    '<div class="dsec"><div class="dsec-h">&#128202; 板块评分</div><div style="font-size:24px;font-weight:800;color:'+cc(s.avg_score)+';text-align:center;padding:4px 0">'+s.avg_score.toFixed(1)+'</div><div style="text-align:center;font-size:10px;color:#94a3b8;margin-bottom:4px">'+s.judgment_text+'</div>'+dist+'<div style="display:flex;justify-content:space-between;margin-top:6px;font-size:9px;color:#475569"><span>&#8597; '+chg+'</span><span>&#128200; '+s.up_stocks+'/'+(s.up_stocks+s.down_stocks)+'涨</span><span>&#128203; '+s.stock_count+'只</span></div></div>'+
-    (brkHtml?'<div class="dsec"><div class="dsec-h">&#128202; 评分明细 <span style="font-size:8px;color:#475569;margin-left:auto">成分股达标率</span></div>'+brkHtml+'</div>':'')+
+    '<div class="dsec"><div class="dsec-h">&#128202; 综合评分</div><div style="text-align:center;padding:6px 0">'+
+'<div style="display:flex;justify-content:center;gap:12px;align-items:center">'+
+'<div><div style="font-size:18px;font-weight:800;color:'+cc(s.avg_score)+'">'+s.avg_score.toFixed(1)+'</div><div style="font-size:8px;color:#64748b">冯掌门</div></div>'+
+'<div style="font-size:10px;color:#475569">+</div>'+
+'<div><div style="font-size:18px;font-weight:800;color:#818cf8">'+(s.radar_total?s.radar_total.toFixed(1):'N')+'</div><div style="font-size:8px;color:#64748b">雷达</div></div>'+
+'<div style="font-size:10px;color:#475569">=</div>'+
+'<div><div style="font-size:20px;font-weight:800;color:'+cc(s.combined_score)+'">'+(s.combined_score?s.combined_score.toFixed(1):'N')+'</div><div style="font-size:8px;color:#64748b">综合</div></div>'+
+'</div>'+
+'<div style="text-align:center;font-size:10px;color:#94a3b8;margin-top:4px">'+(s.combined_judgment_text||s.judgment_text)+'</div>'+
+dist+'<div style="display:flex;justify-content:space-between;margin-top:6px;font-size:9px;color:#475569"><span>&#8597; '+chg+'</span><span>&#128200; '+s.up_stocks+'/'+(s.up_stocks+s.down_stocks)+'涨</span><span>&#128203; '+s.stock_count+'只</span></div></div>'+
+    (brkHtml?'<div class="dsec"><div class="dsec-h">&#128202; 冯掌门评分 <span style="font-size:8px;color:#475569;margin-left:auto">技术面</span></div>'+brkHtml+'</div>':'')+
     (chartSvg?'<div class="dsec"><div class="dsec-h">&#128200; 60日走势</div><div style="text-align:center">'+chartSvg+'</div></div>':'')+
     (sh?'<div class="dsec"><div class="dsec-h">&#127919; 冯掌门信号</div>'+sh+'</div>':'')+
-    lh+gh+dv;setTimeout(function(){var c=document.getElementById('rtCanvas');if(c&&s.short_name&&rtHistory[s.short_name])drawRTChart(c,rtHistory[s.short_name],cc(s.avg_score));},100);
+    (s.radar_score?'<div class="dsec"><div class="dsec-h">&#128200; 板块雷达 <span style="font-size:8px;color:#6366f1;margin-left:auto">左侧信号 '+s.radar_total.toFixed(1)+'/30</span></div>'+
+  Object.keys(s.radar_score).map(function(k){
+    var v=s.radar_score[k],pct=(v/5*100).toFixed(0);
+    var cls=v>=3?'good':v>=1.5?'mid':'bad';
+    var cols={"位置安全度":"#f87171","价格动量":"#34d399","资金潜伏度":"#60a5fa","时效紧迫度":"#fbbf24","催化确定性":"#818cf8","产业链匹配":"#94a3b8"};
+    return '<div class="brk-item"><span class="brk-lbl" style="color:'+(cols[k]||"#94a3b8")+'">'+k+'</span><div class="brk-bar"><div class="brk-fill '+cls+'" style="width:'+pct+'%"></div></div><span class="brk-val" style="color:'+cc2(v/5)+'">'+v.toFixed(1)+'/5</span></div>';
+  }).join('')+
+'</div>':'')+
+lh+gh+dv;setTimeout(function(){var c=document.getElementById('rtCanvas');if(c&&s.short_name&&rtHistory[s.short_name])drawRTChart(c,rtHistory[s.short_name],cc(s.avg_score));},100);
 }
 
 function closeDetail(){document.getElementById('detail').classList.remove('show');document.body.style.overflow=''}
