@@ -440,30 +440,87 @@ function loadData(){
 
 // ─── Real-Time Data ───
 function fetchRT(){
-  fetch('/api/realtime?_t='+Date.now()).then(function(r){return r.json()}).then(function(d){
-    if(d.error)return;
-    RT=d.sectors||{};
-    // Update cards with realtime prices
-    var cards=document.querySelectorAll('.sec-card');
-    if(!cards.length)return;
-    D.forEach(function(s,i){
-      var sd=RT[s.short_name];
-      if(!sd||!sd.avg_price)return;
-      // Update stock quotes in the signals
-      var chgEl=cards[i]&&cards[i].querySelector('.rt-chg');
-      if(chgEl){
-        var chg=((sd.avg_price/1)-1)*100;
-        chgEl.textContent=sd.avg_price+' '+(chg>=0?'+':'')+chg.toFixed(2)+'%';
-        chgEl.style.color=chg>=0?'#34d399':'#f87171';
-      }
-      // Track chart history for sectors
-      if(s.short_name){
-        if(!rtHistory[s.short_name])rtHistory[s.short_name]=[];
-        rtHistory[s.short_name].push({t:Date.now(),p:parseFloat(sd.avg_price)});
-        if(rtHistory[s.short_name].length>120)rtHistory[s.short_name].shift();
+  // First try: local server API
+  var url = '/api/realtime?_t='+Date.now();
+  fetch(url).then(function(r){if(r.ok)return r.json();throw new Error('no api')}).then(function(d){
+    if(d.sectors)updateRT(d.sectors);
+  }).catch(function(){
+    // Fallback: JSONP via Sina (works on GitHub Pages)
+    fetchRTSina();
+  });
+}
+
+function fetchRTSina(){
+  if(!window._sinaData)window._sinaData={};
+  // Collect all stock codes
+  var allCodes=[];
+  D.forEach(function(s){(s.constituent_codes||[]).forEach(function(c){if(allCodes.indexOf(c)<0)allCodes.push(c)})});
+  if(!allCodes.length)return;
+  var prefix=allCodes.map(function(c){return(c[0]==='6'?'sh':'sz')+c}).join(',');
+  // Create callback handler
+  var cbName='_sinaCB'+Date.now();
+  window[cbName]=function(){};
+  // Load Sina data via script tag (JSONP-style but Sina uses var assignment)
+  var s=document.createElement('script');
+  s.src='https://hq.sinajs.cn/list='+prefix+'&cb='+cbName;
+  // Parse after load
+  s.onload=function(){
+    // The script creates global var hq_str_XXX - we need to read them
+    var sectors={};
+    allCodes.forEach(function(code){
+      var prefix2=code[0]==='6'?'sh':'sz';
+      var varName='hq_str_'+prefix2+code;
+      if(window[varName]){
+        var parts=window[varName].split(',');
+        if(parts.length>=32){
+          var price=parseFloat(parts[3])||0,yclose=parseFloat(parts[2])||0;
+          var name=parts[0].replace(/"/g,'').split('=')[1]||'';
+          var stock={name:name,price:price,yclose:yclose,high:parseFloat(parts[4])||0,low:parseFloat(parts[5])||0,open:parseFloat(parts[1])||0};
+          _sinaData[code]=stock;
+        }
+        // Clean up
+        try{delete window[varName];}catch(e){}
       }
     });
-  }).catch(function(){});
+    // Aggregate
+    D.forEach(function(si){
+      var codes=si.constituent_codes||[],tp=0,n=0,up=0,dn=0;
+      codes.forEach(function(c){
+        if(_sinaData[c]&&_sinaData[c].price){tp+=_sinaData[c].price;n++;if((_sinaData[c].price-_sinaData[c].yclose)/_sinaData[c].yclose>0)up++;else dn++}
+      });
+      if(n>0)sectors[si.short_name]={avg_price:(tp/n).toFixed(2),up_stocks:up,down_stocks:dn,total:n};
+    });
+    updateRT(sectors);
+    document.body.removeChild(s);
+    try{delete window[cbName];}catch(e){}
+  };
+  s.onerror=function(){document.body.removeChild(s);try{delete window[cbName];}catch(e){}};
+  document.body.appendChild(s);
+}
+
+function updateRT(sectors){
+  RT=sectors||{};
+  var cards=document.querySelectorAll('.sec-card');
+  if(!cards.length)return;
+  D.forEach(function(s,i){
+    var sd=RT[s.short_name];
+    if(!sd||!sd.avg_price)return;
+    var chgEl=cards[i]&&cards[i].querySelector('.rt-chg');
+    if(chgEl){
+      var cur=parseFloat(sd.avg_price);
+      // Calculate change from a reference (use close price from chart)
+      var ref=s.chart&&s.chart.length?s.chart[s.chart.length-1].c:cur;
+      var chgPct=(cur-ref)/ref*100;
+      chgEl.textContent=cur.toFixed(2)+' '+(chgPct>=0?'+':'')+chgPct.toFixed(2)+'%';
+      chgEl.style.color=chgPct>=0?'#34d399':'#f87171';
+    }
+    // Track chart history
+    if(s.short_name){
+      if(!rtHistory[s.short_name])rtHistory[s.short_name]=[];
+      rtHistory[s.short_name].push({t:Date.now(),p:parseFloat(sd.avg_price)});
+      if(rtHistory[s.short_name].length>120)rtHistory[s.short_name].shift();
+    }
+  });
 }
 
 function drawRTChart(canvas, history, color){
