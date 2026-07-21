@@ -195,8 +195,8 @@ function render(){
     var sp = sparkSVG(s.chart, 60, 20);
     var sb = s.score_breakdown||{};
     var items = [];
-    if(sb.MACD多头) items.push({k:'MACD',v:sb.MACD多头.count,c:sb.MACD多头.total});
-    if(sb.MACD红柱) items.push({k:'红柱',v:sb.MACD红柱.count,c:sb.MACD红柱.total});
+    if(sb.MACD_bull) items.push({k:'MACD',v:sb.MACD_bull.count,c:sb.MACD_bull.total});
+    if(sb.MACD_red) items.push({k:'红柱',v:sb.MACD_red.count,c:sb.MACD_red.total});
     if(sb['5日>10日']) items.push({k:'5>10',v:sb['5日>10日'].count,c:sb['5日>10日'].total});
     if(sb['20日>60日']) items.push({k:'20>60',v:sb['20日>60日'].count,c:sb['20日>60日'].total});
     var barHtml = items.map(function(it){
