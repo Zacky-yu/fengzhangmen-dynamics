@@ -135,6 +135,20 @@ body{
   .hero h2{font-size:22px}
   .header h1{font-size:16px}
 }
+
+/* System Summary Card */
+.system-card{background:linear-gradient(135deg,rgba(99,102,241,0.08),rgba(236,72,153,0.08));border:1px solid rgba(99,102,241,0.15);border-radius:16px;padding:20px;margin-bottom:20px}
+.sys-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sys-badge{background:rgba(99,102,241,0.15);color:#818cf8;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px}
+.sys-title{font-size:16px;font-weight:700}
+.sys-sub{font-size:11px;color:#64748b;margin-left:auto}
+.sys-body{display:grid;gap:8px}
+.sys-row{display:flex;align-items:flex-start;gap:12px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.sys-row:last-child{border:none}
+.sys-label{font-size:11px;font-weight:600;color:#64748b;min-width:56px;padding-top:2px}
+.sys-value{font-size:13px;color:#c8cce0;line-height:1.5}
+.sys-value.buy{color:#34d399}
+.sys-value.sell{color:#f87171}
 </style>
 </head>
 <body>
@@ -159,7 +173,39 @@ body{
   <p>从每一期视频中提取冯掌门的动力学分析体系 · 自动结构化整理</p>
 </div>
 
-<div class="stats" id="statsBar">
+
+  <!-- System Summary -->
+  <div class="content" id="systemSummary" style="display:none">
+    <div class="system-card">
+      <div class="sys-header">
+        <span class="sys-badge">v2.0</span>
+        <span class="sys-title">🎯 完整交易体系</span>
+        <span class="sys-sub">基于 <span id="sysCount">5</span> 期视频提取</span>
+      </div>
+      <div class="sys-body">
+        <div class="sys-row">
+          <div class="sys-label">核心理论</div>
+          <div class="sys-value" id="sysTheory">量价动力学 + 底背离体系 + 多周期共振</div>
+        </div>
+        <div class="sys-row">
+          <div class="sys-label">买入信号</div>
+          <div class="sys-value buy" id="sysBuy">底背离 → 阳线穿五天线 → 金叉 → MACD变红</div>
+        </div>
+        <div class="sys-row">
+          <div class="sys-label">卖出信号</div>
+          <div class="sys-value sell" id="sysSell">量价背离 → 放量阴线 → 反弹不过五天线</div>
+        </div>
+        <div class="sys-row">
+          <div class="sys-label">操作框架</div>
+          <div class="sys-value" id="sysFramework">大盘→主力→多周期→信号→执行</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats" id="statsBar">
+
   <div class="stat-box">
     <div class="num" id="statVideos">0</div>
     <div class="lbl">已分析视频</div>
@@ -334,6 +380,35 @@ function toggleCard(header) {
   body.classList.toggle('open');
   icon.classList.toggle('open');
 }
+
+function loadSystemSummary() {
+  var sysDiv = document.getElementById('systemSummary');
+  if (!sysDiv) return;
+  
+  fetch(DATA_URL + '?' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.system_summary) {
+        sysDiv.style.display = 'block';
+        var s = data.system_summary;
+        document.getElementById('sysCount').textContent = s.analyzed_videos || data.videos.length;
+        if (s.key_signals) {
+          document.getElementById('sysBuy').textContent = s.key_signals.buy || '';
+          document.getElementById('sysSell').textContent = s.key_signals.sell || '';
+        }
+        if (s.framework) document.getElementById('sysFramework').textContent = s.framework;
+      }
+    })
+    .catch(function() {});
+}
+
+// Override render to also load system summary
+var origRender = render;
+render = function() {
+  loadSystemSummary();
+  return origRender.apply(this, arguments);
+};
+
 
 function expandTrans(el) {
   var box = el.previousElementSibling;
