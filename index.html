@@ -297,6 +297,7 @@ function switchTab(t){T=t;
 // ─── Helpers ───
 function sc(i){return i>=20?'pos':i>=-20?'neu':'neg'}
 function cc(i){return i>=20?'#34d399':i>=-20?'#fbbf24':'#f87171'}
+function cc2(r){return r>=0.6?'#34d399':r>=0.3?'#fbbf24':'#f87171'}
 function jc(s){return s==='强势'||s==='偏强'?'jg-str':s==='弱势'||s==='偏弱'?'jg-wk':'jg-neu'}
 function sc2(i){return i>=20?'sc-str':i<-20?'sc-wk':'sc-neu'}
 function jgDot(v,t){if(!t)return'';var r=v/t;return r>=0.5?'on':r>0?'mid':'off'}
@@ -364,7 +365,7 @@ function render(){
     if(s.signals.sell&&s.signals.sell[0])tg+='<span class="sec-tag tag-sell">'+s.signals.sell[0].slice(0,16)+'</span>';
 
     var idx=D.indexOf(s);
-    return'<div class="sec-card '+s3+'" onclick="sd('+idx+')"><div class="sec-top"><span class="sec-rank">#'+(L.indexOf(s)+1)+'</span><span class="sec-name">'+s.short_name+'</span><span class="sec-score '+c2+'">'+v.toFixed(1)+'</span><span style="font-size:8px;color:#64748b;margin-left:2px">冯</span><span style="font-size:10px;color:'+cc(s.combined_score)+';margin-left:1px">'+s.combined_score.toFixed(1)+'</span><span style="font-size:8px;color:#475569">合</span>'</div><div class="sec-spark">'+sp+'<span class="sec-jg '+jc(s.judgment)+'">'+s.judgment+'</span><span class="sec-chg" style="color:'+cc2+'">'+ch+'</span></div><div class="sec-bar-wrap"><div class="sec-mbar"><div class="sec-mbar-f" style="width:'+p+'%;background:'+c1+'"></div></div></div>'+(dhtml?'<div class="brk-row">'+dhtml+'</div>':'')+(tg?'<div class="sec-tags">'+tg+'</div>':'')+'</div>';
+    return'<div class="sec-card '+s3+'" onclick="sd('+idx+')"><div class="sec-top"><span class="sec-rank">#'+(L.indexOf(s)+1)+'</span><span class="sec-name">'+s.short_name+'</span><span class="sec-score '+c2+'">'+v.toFixed(1)+'</span><span style="font-size:8px;color:#64748b;margin-left:2px">冯</span><span style="font-size:10px;color:'+cc(s.combined_score)+';margin-left:1px">'+s.combined_score.toFixed(1)+'</span><span style="font-size:8px;color:#475569">合</span></div><div class="sec-spark">'+sp+'<span class="sec-jg '+jc(s.judgment)+'">'+s.judgment+'</span><span class="sec-chg" style="color:'+cc2+'">'+ch+'</span></div><div class="sec-bar-wrap"><div class="sec-mbar"><div class="sec-mbar-f" style="width:'+p+'%;background:'+c1+'"></div></div></div>'+(dhtml?'<div class="brk-row">'+dhtml+'</div>':'')+(tg?'<div class="sec-tags">'+tg+'</div>':'')+'</div>';
   }).join('');
 }
 
