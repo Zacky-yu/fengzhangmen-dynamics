@@ -78,6 +78,20 @@
         "warning": []
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 1.4,
+        "价格动量": 1.2,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 2.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 0.5
+      },
+      "radar_total": 9.1,
+      "feng_score": 60.0,
+      "combined_score": 55.2,
+      "combined_judgment": "建议关注",
+      "combined_judgment_text": "技术面或左侧信号偏多",
+      "combined_pct": 55.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 6,
@@ -427,6 +441,20 @@
         "warning": []
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 1.8,
+        "价格动量": 0.2,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 2.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 0.5
+      },
+      "radar_total": 8.5,
+      "feng_score": 46.4,
+      "combined_score": 50.8,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 51.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 7,
@@ -774,6 +802,20 @@
         "warning": []
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.3,
+        "价格动量": 1.4,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 2.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 1.0
+      },
+      "radar_total": 12.7,
+      "feng_score": 42.9,
+      "combined_score": 56.9,
+      "combined_judgment": "建议关注",
+      "combined_judgment_text": "技术面或左侧信号偏多",
+      "combined_pct": 57.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 7,
@@ -1123,6 +1165,20 @@
         "warning": []
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.8,
+        "价格动量": 0,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 2.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 2.0
+      },
+      "radar_total": 12.8,
+      "feng_score": 40.7,
+      "combined_score": 56.5,
+      "combined_judgment": "建议关注",
+      "combined_judgment_text": "技术面或左侧信号偏多",
+      "combined_pct": 57.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 7,
@@ -1471,6 +1527,20 @@
         "warning": []
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 2.3,
+        "价格动量": 0,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 2.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 3.0
+      },
+      "radar_total": 11.3,
+      "feng_score": 38.6,
+      "combined_score": 53.5,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 53.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 7,
@@ -1820,6 +1890,20 @@
         ]
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.3,
+        "价格动量": 0.8,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 2.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 0.5
+      },
+      "radar_total": 11.6,
+      "feng_score": 25.0,
+      "combined_score": 50.6,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 51.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 6,
@@ -2171,6 +2255,20 @@
         ]
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 2.4,
+        "价格动量": 1.0,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 4.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 1.0
+      },
+      "radar_total": 12.4,
+      "feng_score": 22.9,
+      "combined_score": 51.4,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 51.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 3,
@@ -2522,6 +2620,20 @@
         ]
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.5,
+        "价格动量": 0,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 2.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 0.5
+      },
+      "radar_total": 11.0,
+      "feng_score": 22.9,
+      "combined_score": 49.1,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 49.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 5,
@@ -2872,6 +2984,20 @@
         ]
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.6,
+        "价格动量": 0.7,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 2.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 4.0
+      },
+      "radar_total": 15.3,
+      "feng_score": 15.7,
+      "combined_score": 54.4,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 54.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 5,
@@ -3221,6 +3347,20 @@
         ]
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.1,
+        "价格动量": 1.7,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 4.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 2.0
+      },
+      "radar_total": 15.8,
+      "feng_score": 7.1,
+      "combined_score": 53.1,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 53.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 4,
@@ -3573,6 +3713,20 @@
         ]
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.2,
+        "价格动量": 2.4,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 4.0,
+        "催化确定性": 2.5,
+        "产业链匹配": 4.5
+      },
+      "radar_total": 20.1,
+      "feng_score": 4.3,
+      "combined_score": 59.6,
+      "combined_judgment": "建议关注",
+      "combined_judgment_text": "技术面或左侧信号偏多",
+      "combined_pct": 60.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 4,
@@ -3922,6 +4076,20 @@
         ]
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.5,
+        "价格动量": 5,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 4.0,
+        "催化确定性": 2.5,
+        "产业链匹配": 2.0
+      },
+      "radar_total": 20.5,
+      "feng_score": 2.9,
+      "combined_score": 59.9,
+      "combined_judgment": "建议关注",
+      "combined_judgment_text": "技术面或左侧信号偏多",
+      "combined_pct": 60.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 3,
@@ -4271,6 +4439,20 @@
         ]
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.1,
+        "价格动量": 1.7,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 4.0,
+        "催化确定性": 1.5,
+        "产业链匹配": 3.5
+      },
+      "radar_total": 17.3,
+      "feng_score": -12.1,
+      "combined_score": 50.8,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 51.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 3,
@@ -4622,6 +4804,20 @@
         ]
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.2,
+        "价格动量": 3.2,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 1.0,
+        "催化确定性": 2.5,
+        "产业链匹配": 3.0
+      },
+      "radar_total": 16.4,
+      "feng_score": -14.3,
+      "combined_score": 48.8,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 49.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 2,
@@ -4971,6 +5167,20 @@
         ]
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.4,
+        "价格动量": 5,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 1.0,
+        "催化确定性": 2.5,
+        "产业链匹配": 1.5
+      },
+      "radar_total": 16.9,
+      "feng_score": -15.7,
+      "combined_score": 49.2,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 49.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 1,
@@ -5318,6 +5528,20 @@
         "warning": []
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 4.8,
+        "价格动量": 5,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 1.0,
+        "催化确定性": 2.5,
+        "产业链匹配": 4.5
+      },
+      "radar_total": 20.3,
+      "feng_score": -17.1,
+      "combined_score": 54.6,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 55.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 1,
@@ -5663,6 +5887,20 @@
         "warning": []
       },
       "divergence_stocks": [],
+      "radar_score": {
+        "位置安全度": 3.0,
+        "价格动量": 5,
+        "资金潜伏度": 2.5,
+        "时效紧迫度": 1.0,
+        "催化确定性": 2.5,
+        "产业链匹配": 4.0
+      },
+      "radar_total": 18.0,
+      "feng_score": -18.6,
+      "combined_score": 50.4,
+      "combined_judgment": "中性观望",
+      "combined_judgment_text": "信号不明确，等待共振",
+      "combined_pct": 50.0,
       "score_breakdown": {
         "MACD_bull": {
           "count": 0,
