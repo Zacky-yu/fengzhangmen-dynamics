@@ -2,13 +2,11 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>?????? ? ??????</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans SC",sans-serif;background:#080b15;color:#e8eaf0;min-height:100vh;padding-bottom:56px}
-.app{max-width:480px;margin:0 auto}
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>小龙财经分析 · 板块雷达融合</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Noto Sans SC',sans-serif;background:#080b15;color:#e8eaf0;min-height:100vh;padding-bottom:56px;overflow-x:hidden}
+.app{max-width:480px;margin:0 auto;width:100%}
 .hd{background:rgba(17,24,39,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);padding:10px 14px;position:sticky;top:0;z-index:100}
 .hd-in{display:flex;align-items:center;justify-content:space-between}
 .hd-av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#6366f1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
@@ -16,50 +14,43 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto
 .hd .sub{font-size:9px;color:#475569;margin-top:1px}
 .hd-r{display:flex;gap:4px;align-items:center}
 .hd-btn{width:28px;height:28px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:#94a3b8;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
-.hd-btn:active{background:rgba(255,255,255,0.1)}
-.fresh-badge{font-size:8px;padding:2px 5px;border-radius:3px;background:rgba(251,191,36,0.1);color:#fbbf24;white-space:nowrap}
+.fresh-badge{font-size:8px;padding:2px 5px;border-radius:3px;background:rgba(251,191,36,0.1);color:#fbbf24}
 .fresh-badge.ok{background:rgba(52,211,153,0.1);color:#34d399}
-
-.tabs{display:flex;gap:3px;padding:8px 14px;background:rgba(17,24,39,0.6);border-bottom:1px solid rgba(255,255,255,0.04)}
-.tab{flex:1;padding:6px;text-align:center;font-size:10px;font-weight:600;border-radius:6px;cursor:pointer;color:#64748b;transition:all 0.2s;font-family:inherit}
+.tabs{display:flex;gap:3px;padding:8px 14px;background:rgba(17,24,39,0.6)}
+.tab{flex:1;padding:6px;text-align:center;font-size:10px;font-weight:600;border-radius:6px;cursor:pointer;color:#64748b;font-family:inherit;transition:all 0.12s}
 .tab.act{background:rgba(99,102,241,0.12);color:#818cf8}
-
-.stats{display:flex;gap:5px;padding:8px 14px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.stat{flex-shrink:0;padding:5px 10px;border-radius:6px;font-size:10px;font-weight:600;white-space:nowrap}
+.stats{display:flex;gap:5px;padding:8px 14px;overflow-x:auto;scrollbar-width:none}
+.stats::-webkit-scrollbar{display:none}
+.stat{flex-shrink:0;padding:5px 10px;border-radius:6px;font-size:10px;font-weight:600}
 .stat-str{background:rgba(239,68,68,0.08);color:#f87171}
 .stat-mid{background:rgba(251,191,36,0.08);color:#fbbf24}
 .stat-wk{background:rgba(52,211,153,0.08);color:#34d399}
 .stat-all{background:rgba(148,163,184,0.08);color:#94a3b8}
-
 .loading{text-align:center;padding:60px 20px;color:#475569;font-size:11px}
-.sp{width:24px;height:24px;border:2px solid rgba(99,102,241,0.15);border-top:2px solid #6366f1;border-radius:50%;animation:sp .8s linear infinite;margin:0 auto}
+.sp{width:24px;height:24px;border:2px solid rgba(99,102,241,0.15);border-top-color:#6366f1;border-radius:50%;animation:sp .8s linear infinite;margin:0 auto}
 @keyframes sp{to{transform:rotate(360deg)}}
-
 .sec-list{padding:6px 10px;display:flex;flex-direction:column;gap:5px}
 .sec-card{background:linear-gradient(135deg,rgba(17,24,39,0.9),rgba(20,28,48,0.9));border:1px solid rgba(255,255,255,0.04);border-radius:10px;padding:8px 10px;cursor:pointer;transition:all 0.12s;position:relative;overflow:hidden}
-.sec-card:active{transform:scale(0.97)}
-.sec-card::before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:2px;border-radius:0 3px 3px 0}
+.sec-card:active{transform:scale(0.98)}
+.sec-card::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:2px;border-radius:0 3px 3px 0}
 .sec-card.sc-str::before{background:#f87171}
 .sec-card.sc-wk::before{background:#34d399}
 .sec-card.sc-neu::before{background:#fbbf24}
-
 .sec-top{display:flex;align-items:center;gap:4px}
-.sec-rank{font-size:9px;color:#475569;font-weight:600;width:16px;flex-shrink:0;text-align:center}
-.sec-name{font-size:13px;font-weight:600;flex:1}
-.sec-score{font-size:14px;font-weight:800;font-variant-numeric:tabular-nums;flex-shrink:0}
+.sec-rank{font-size:9px;color:#475569;font-weight:600;width:16px;text-align:center;flex-shrink:0}
+.sec-name{font-size:13px;font-weight:600;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sec-score{font-size:14px;font-weight:800;flex-shrink:0}
 .sec-score.pos{color:#34d399}.sec-score.neg{color:#f87171}.sec-score.neu{color:#fbbf24}
 .sec-spark{display:flex;align-items:center;gap:6px;margin-top:3px;padding-left:16px}
 .sec-spark svg{width:60px;height:20px;flex-shrink:0;border-radius:2px}
-.sec-jg{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:600;flex-shrink:0}
+.sec-jg{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:600}
 .jg-str{background:rgba(239,68,68,0.1);color:#f87171}
 .jg-wk{background:rgba(52,211,153,0.1);color:#34d399}
 .jg-neu{background:rgba(148,163,184,0.1);color:#94a3b8}
-.sec-chg{font-size:9px;color:#64748b;flex-shrink:0}
+.sec-chg{font-size:9px;color:#64748b}
 .sec-bar-wrap{display:flex;align-items:center;gap:4px;margin-top:4px;padding-left:16px}
-.sec-mbar{flex:1;height:2px;border-radius:1px;background:rgba(255,255,255,0.04)}
+.sec-mbar{flex:1;height:2px;background:rgba(255,255,255,0.04);border-radius:1px;overflow:hidden}
 .sec-mbar-f{height:100%;border-radius:1px;transition:width 0.5s}
-
-/* Signal badges */
 .sec-msg{display:flex;gap:3px;margin-top:2px;padding-left:16px;flex-wrap:wrap}
 .msg-tag{display:inline-flex;align-items:center;gap:2px;font-size:8px;padding:1px 5px;border-radius:3px;font-weight:600}
 .msg-buy{background:rgba(52,211,153,0.08);color:#34d399}
@@ -67,267 +58,174 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto
 .msg-warn{background:rgba(251,191,36,0.08);color:#fbbf24}
 .msg-info{background:rgba(96,165,250,0.08);color:#60a5fa}
 .msg-none{background:rgba(148,163,184,0.08);color:#475569}
-
-.detail{display:none;position:fixed;inset:0;z-index:200;background:#080b15;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.sec-radar{display:flex;gap:4px;margin-top:1px;padding-left:16px;font-size:8px;color:#475569;align-items:center;flex-wrap:wrap}
+.rt{color:#818cf8}.rt2{color:#fbbf24}.rt3{color:#f87171}
+.detail{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;background:rgba(8,11,21,0.98);overflow-y:auto;-webkit-overflow-scrolling:touch;max-width:480px;margin:0 auto}
 .detail.show{display:block}
-.detail-hd{display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(17,24,39,0.96);border-bottom:1px solid rgba(255,255,255,0.05);position:sticky;top:0;z-index:10}
-.detail-back{width:28px;height:28px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:#94a3b8;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;flex-shrink:0}
-.detail-title{font-size:14px;font-weight:700;flex:1}
-.detail-sc{font-size:13px;font-weight:700}
-.detail-bd{padding:10px 14px 60px}
-
-.dsec{background:#111827;border:1px solid rgba(255,255,255,0.05);border-radius:10px;padding:10px 12px;margin-bottom:8px}
-.dsec-h{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:#94a3b8;margin-bottom:6px}
-.dist-box{display:flex;gap:5px;margin-top:6px}
-
-.brk-item{display:flex;align-items:center;gap:4px;padding:3px 0}
-.brk-lbl{font-size:9px;color:#64748b;width:52px;flex-shrink:0}
-.brk-bar{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,0.04)}
-.brk-fill{height:100%;border-radius:2px;transition:width 0.5s}
-.brk-fill.good{background:#34d399}
-.brk-fill.mid{background:#fbbf24}
-.brk-fill.bad{background:#f87171}
-.brk-val{font-size:9px;font-weight:600;width:18px;text-align:right;flex-shrink:0}
-
-.bnav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(17,24,39,0.96);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.05);display:flex;max-width:480px;margin:0 auto}
-.bnav-it{flex:1;text-align:center;padding:8px 4px;font-size:9px;color:#475569;cursor:pointer;font-family:inherit}
-.bnav-it .ico{font-size:16px;display:block;margin-bottom:1px}
-.bnav-it.act{color:#818cf8}
-
-.methodo{display:none;position:fixed;inset:0;z-index:300;background:#080b15;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.detail-hd{display:flex;align-items:center;gap:8px;padding:12px 14px;background:rgba(17,24,39,0.95);position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.04)}
+.detail-back{background:none;border:none;color:#94a3b8;font-size:18px;cursor:pointer;padding:4px;font-family:inherit}
+.detail-title{font-size:13px;font-weight:600;flex:1}
+.detail-sc{font-size:15px;font-weight:800}
+.detail-bd{padding:14px}
+.detail-sec{margin-bottom:16px}
+.detail-sec h3{font-size:11px;color:#475569;margin-bottom:6px;font-weight:600}
+.score-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.02);font-size:10px}
+.score-row .lb{color:#64748b}
+.score-row .vl{font-weight:600}
+.score-row .ok{color:#34d399}
+.score-row .ng{color:#f87171}
+.score-row .wa{color:#fbbf24}
+.cmp-card{background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.12);border-radius:8px;padding:10px;margin-bottom:8px}
+.cmp-card h4{font-size:11px;color:#818cf8;margin-bottom:4px}
+.cmp-bar-wrap{display:flex;align-items:center;gap:6px;margin:3px 0}
+.cmp-lb{font-size:9px;color:#64748b;width:56px;flex-shrink:0}
+.cmp-bar{flex:1;height:6px;background:rgba(255,255,255,0.04);border-radius:3px;overflow:hidden}
+.cmp-bar-f{height:100%;border-radius:3px;transition:width 0.5s}
+.cmp-vl{font-size:9px;font-weight:700;width:32px;text-align:right;flex-shrink:0}
+.stock-row{display:flex;align-items:center;gap:6px;padding:4px 0;font-size:10px}
+.stock-row .nm{flex:1;color:#e8eaf0}
+.stock-row .st{font-weight:600;padding:1px 4px;border-radius:3px;font-size:8px}
+.signal-section{margin:8px 0}
+.signal-group{margin:4px 0;padding:6px 8px;border-radius:6px;font-size:10px}
+.signal-group h4{font-size:10px;margin-bottom:3px}
+.signal-group ul{list-style:none;padding:0;margin:0}
+.signal-group li{padding:2px 0;color:#64748b;line-height:1.4}
+.sg-buy{background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.1)}
+.sg-buy h4{color:#34d399}
+.sg-sell{background:rgba(248,113,113,0.06);border:1px solid rgba(248,113,113,0.1)}
+.sg-sell h4{color:#f87171}
+.sg-warn{background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.1)}
+.sg-warn h4{color:#fbbf24}
+.sg-info{background:rgba(96,165,250,0.06);border:1px solid rgba(96,165,250,0.1)}
+.sg-info h4{color:#60a5fa}
+.chart-wrap{background:rgba(255,255,255,0.02);border-radius:8px;padding:8px;margin-bottom:8px}
+.chart-wrap canvas{width:100%;height:160px;display:block}
+.signal-tag{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;margin:2px 3px 2px 0}
+.signal-tag.buy{background:rgba(52,211,153,0.1);color:#34d399}
+.signal-tag.sell{background:rgba(248,113,113,0.1);color:#f87171}
+.signal-tag.warn{background:rgba(251,191,36,0.1);color:#fbbf24}
+.signal-tag.info{background:rgba(96,165,250,0.1);color:#60a5fa}
+.methodo{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;background:rgba(8,11,21,0.98);overflow-y:auto;-webkit-overflow-scrolling:touch;max-width:480px;margin:0 auto}
 .methodo.show{display:block}
-.methodo-hd{display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(17,24,39,0.96);border-bottom:1px solid rgba(255,255,255,0.05);position:sticky;top:0;z-index:10}
-.methodo-bd{padding:12px 14px 60px;font-size:10px;line-height:1.6;color:#94a3b8}
-.methodo-bd h3{font-size:12px;color:#e8eaf0;margin:14px 0 6px}
-.methodo-bd h4{font-size:11px;color:#e8eaf0;margin:10px 0 4px}
-.methodo-bd .dim-card{background:#111827;border:1px solid rgba(255,255,255,0.04);border-radius:8px;padding:8px 10px;margin-bottom:6px}
-.methodo-bd .dim-card h4{font-size:11px;color:#e8eaf0;margin-bottom:3px}
-.methodo-bd .dim-card p{font-size:9px;color:#64748b}
-</style>
+.methodo-hd{display:flex;align-items:center;gap:8px;padding:12px 14px;background:rgba(17,24,39,0.95);position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,0.04)}
+.methodo-bd{padding:14px}
+.methodo-bd h2{font-size:14px;margin:14px 0 6px;color:#e8eaf0}
+.methodo-bd h3{font-size:11px;color:#475569;margin:10px 0 4px}
+.methodo-bd p{font-size:10px;color:#64748b;line-height:1.6;margin:4px 0}
+.meth-card{background:rgba(17,24,39,0.8);border:1px solid rgba(255,255,255,0.04);border-radius:8px;padding:10px;margin:6px 0}
+.meth-card h4{font-size:11px;margin-bottom:4px}
+.meth-card p{font-size:9px;color:#64748b;line-height:1.5}
+.dim-card{background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.12);border-radius:8px;padding:10px;margin:6px 0}
+.dim-card h4{font-size:11px;color:#818cf8;margin-bottom:4px}
+.dim-card p{font-size:9px;color:#64748b;line-height:1.5}
+.bnav{position:fixed;bottom:0;left:0;right:0;background:rgba(17,24,39,0.97);border-top:1px solid rgba(255,255,255,0.04);display:flex;z-index:100;max-width:480px;margin:0 auto}
+.bnav-it{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;font-size:8px;color:#64748b;cursor:pointer;font-family:inherit}
+.bnav-it .ico{font-size:16px}
+.bnav-it.act{color:#818cf8}
+.error-msg{text-align:center;padding:40px 20px;color:#f87171;font-size:11px}
+.news-item{display:flex;gap:6px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.03);font-size:9px;line-height:1.4}
+.news-item .nd{color:#475569;flex-shrink:0;width:60px}
+.news-item .nt{color:#94a3b8;flex:1}
+.split-badge{font-size:7px;padding:1px 4px;border-radius:2px;background:rgba(99,102,241,0.08);color:#818cf8}</style>
 </head>
 <body>
 <div class="app">
-
 <div class="hd"><div class="hd-in">
-  <div style="display:flex;align-items:center;gap:8px">
-    <div class="hd-av">?</div>
-    <div><h1>??????</h1><div class="sub">?????? ? ???????</div></div>
-  </div>
-  <div class="hd-r"><span class="fresh-badge" id="freshBadge">???...</span>
-    <button class="hd-btn" onclick="doRefresh()" title="??">&#x21bb;</button>
-  </div>
+<div style="display:flex;align-items:center;gap:8px">
+<div class="hd-av">龙</div>
+<div><h1>小龙财经分析</h1><div class="sub">冯掌门动力学 + 板块雷达 · 综合评分</div></div>
+</div>
+<div class="hd-r"><span class="fresh-badge" id="freshBadge">加载数据中...</span><button class="hd-btn" onclick="doRefresh()">↻</button></div>
 </div></div>
-
 <div class="tabs">
-  <div class="tab act" data-tab="all" onclick="switchTab('all')">??</div>
-  <div class="tab" data-tab="strong" onclick="switchTab('strong')">??</div>
-  <div class="tab" data-tab="weak" onclick="switchTab('weak')">??</div>
+<div class="tab act" data-tab="all" onclick="switchTab('all')">全部</div>
+<div class="tab" data-tab="strong" onclick="switchTab('strong')">强势</div>
+<div class="tab" data-tab="weak" onclick="switchTab('weak')">弱势</div>
 </div>
-
 <div class="stats" id="stats"></div>
-
-<div class="sec-list" id="secList">
-  <div class="loading" id="loading"><div class="sp"></div><div style="margin-top:10px">??????...</div></div>
-</div>
-
+<div class="sec-list" id="secList"><div class="loading" id="loading"><div class="sp"></div><div style="margin-top:10px">加载中...</div></div></div>
 <div class="detail" id="detail">
-  <div class="detail-hd">
-    <button class="detail-back" onclick="closeDetail()">&larr;</button>
-    <span class="detail-title" id="dtTitle">????</span>
-    <span class="detail-sc" id="dtScore"></span>
-  </div>
-  <div class="detail-bd" id="dtBody"></div>
+<div class="detail-hd"><button class="detail-back" onclick="closeDetail()">&larr;</button><span class="detail-title" id="dtTitle">板块详情</span><span class="detail-sc" id="dtScore"></span></div>
+<div class="detail-bd" id="dtBody"></div>
 </div>
-
 <div class="methodo" id="methodo">
-  <div class="methodo-hd">
-    <button class="detail-back" onclick="closeMeth()">&larr;</button>
-    <span class="detail-title">??????????</span>
-  </div>
-  <div class="methodo-bd" id="methBody"></div>
+<div class="methodo-hd"><button class="detail-back" onclick="closeMeth()">&larr;</button><span class="detail-title">小龙财经分析体系说明</span></div>
+<div class="methodo-bd" id="methBody"></div>
 </div>
-
 <div class="bnav">
-  <div class="bnav-it act" data-page="sectors" onclick="switchPage('sectors')"><span class="ico">&#128202;</span>??</div>
-  <div class="bnav-it" data-page="methodo" onclick="switchPage('methodo')"><span class="ico">&#128214;</span>???</div>
+<div class="bnav-it act" data-page="sectors" onclick="switchPage('sectors')"><span class="ico">📊</span>板块</div>
+<div class="bnav-it" data-page="methodo" onclick="switchPage('methodo')"><span class="ico">📖</span>方法论</div>
 </div>
-
 </div>
-
-<script>
-var D=[],T='all',autoTimer=null;
-
-function sc(i){return i>=20?'pos':i>=-20?'neu':'neg'}
-function cc(i){return i>=20?'#34d399':i>=-20?'#fbbf24':'#f87171'}
-function jc(s){return s==='\u5f3a\u52bf'||s==='\u504f\u5f3a'?'jg-str':s==='\u5f31\u52bf'||s==='\u504f\u5f31'?'jg-wk':'jg-neu'}
-function sc2(i){return i>=20?'sc-str':i<-20?'sc-wk':'sc-neu'}
-function jgDot(v,t){if(!t)return'';var r=v/t;return r>=0.5?'on':r>0?'mid':'off'}
-function jgDotColor(v,t){if(!t)return'#64748b';var r=v/t;return r>=0.5?'#34d399':r>0?'#fbbf24':'#f87171'}
-
-function sparkSVG(vals,w,h){
-  if(!vals||vals.length<2)return'';
-  var p=vals.map(function(v){return v.c;}),mn=Math.min.apply(null,p),mx=Math.max.apply(null,p),r=mx-mn||1;
-  var pts=p.map(function(pr,i){return((i/(p.length-1))*w).toFixed(1)+','+(h-((pr-mn)/r)*(h-2)-1).toFixed(1)}).join(' ');
-  var c=p[p.length-1]>=p[0]?'#34d399':'#f87171';
-  return'<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><polyline points="'+pts+'" fill="none" stroke="'+c+'" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-}
-
-function switchPage(id){
-  document.querySelectorAll('.page').forEach(function(e){e.classList.toggle('show',e.id===id)});
-  document.querySelectorAll('.bnav-it').forEach(function(e){e.classList.toggle('act',e.getAttribute('data-page')===id)});
-  if(id==='pageSectors')render();
-}
-
-function switchTab(t){T=t;
-  document.querySelectorAll('.tab').forEach(function(e){e.classList.toggle('act',e.getAttribute('data-tab')===t)});
-  render();
-}
-
-function closeDetail(){document.getElementById('detail').classList.remove('show');document.body.style.overflow=''}
-function closeMeth(){document.getElementById('methodo').classList.remove('show')}
-
-// ??? Signal Badges ???
-function renderSignals(s){
-  var h='';
-  if((s.signals.buy||[]).length)h+='<span class="msg-tag msg-buy">&#9650; '+s.signals.buy.length+'</span>';
-  if((s.signals.sell||[]).length)h+='<span class="msg-tag msg-sell">&#9660; '+s.signals.sell.length+'</span>';
-  if((s.signals.warning||[]).length)h+='<span class="msg-tag msg-warn">&#9888; '+s.signals.warning.length+'</span>';
-  if((s.signals.info||[]).length)h+='<span class="msg-tag msg-info">&#8505; '+s.signals.info.length+'</span>';
-  return h||'<span class="msg-tag msg-none">-</span>';
-}
-
-// ??? Signal Details ???
-function renderSignalDetails(s){
-  var sigs=s.signals||{},arr=[{k:'buy',l:'\u4e70\u5165\u4fe1\u53f7',e:'#34d399'},{k:'sell',l:'\u5356\u51fa\u4fe1\u53f7',e:'#f87171'},{k:'warning',l:'\u98ce\u9669\u63d0\u793a',e:'#fbbf24'},{k:'info',l:'\u4e2d\u6027\u4fe1\u606f',e:'#60a5fa'}],html='';
-  arr.forEach(function(t){
-    var list=sigs[t.k]||[];
-    if(!list.length)return;
-    html+='<div style="margin-top:4px"><div style="font-size:9px;font-weight:600;color:'+t.e+';margin-bottom:2px">'+t.l+' ('+list.length+')</div>';
-    list.forEach(function(m){html+='<div style="display:flex;align-items:flex-start;gap:4px;padding:3px 0;font-size:9px;line-height:1.3;border-bottom:1px solid rgba(255,255,255,0.02)"><span style="color:'+t.e+';flex-shrink:0">&#8226;</span><span style="color:#94a3b8">'+m+'</span></div>'});
-    html+='</div>';
-  });
-  return html||'<div style="font-size:9px;color:#475569;text-align:center;padding:6px 0">\u6682\u65e0\u6d88\u606f\u9762\u4fe1\u53f7</div>';
-}
-
-// ??? Load Data ???
-function loadData(){
-  fetch('data/sectors.json?_t='+Date.now()).then(function(r){return r.json()}).then(function(d){
-    document.getElementById('loading').style.display='none';
-    D=d.sectors||[];
-    var gen=d.generated_at,el=document.getElementById('freshBadge');
-    if(gen){var now=new Date(),p=gen.split('-'),dt=new Date(+p[0],+p[1]-1,+p[2]),dh=Math.round((now-dt)/3600000);
-      if(dh<1){el.textContent='\u521a\u521a\u66f4\u65b0';el.className='fresh-badge ok'}
-      else if(dh<4){el.textContent=dh+'\u5c0f\u65f6\u524d';el.className='fresh-badge ok'}
-      else if(dh<12){el.textContent=dh+'\u5c0f\u65f6\u524d';el.className='fresh-badge'}
-      else if(dh<48){el.textContent=Math.round(dh/24)+'\u5929\u524d';el.className='fresh-badge'}
-      else{el.textContent='\u6570\u636e\u8fc7\u671f';el.className='fresh-badge'}}
-    renderStats();
-    render();
-  }).catch(function(e){
-    document.getElementById('loading').style.display='none';
-    document.getElementById('secList').innerHTML='<div class="loading">&#9888;&#65039; \u52a0\u8f7d\u5931\u8d25<br><span style="font-size:10px;color:#64748b">'+e.message+'</span></div>';
-  });
-}
-
-function doRefresh(){loadData()}
-
-// ??? Stats ???
-function renderStats(){
-  var e=document.getElementById('stats');
-  var a=D.filter(function(s){return s.avg_score>=20}).length;
-  var b=D.filter(function(s){return s.avg_score>=-20&&s.avg_score<20}).length;
-  var c=D.filter(function(s){return s.avg_score<-20}).length;
-  e.innerHTML='<div class="stat stat-str">&#128293; '+a+'</div><div class="stat stat-mid">&#128202; '+b+'</div><div class="stat stat-wk">&#10052;&#65039; '+c+'</div><div class="stat stat-all">&#127991; '+D.length+'</div>';
-}
-
-// ??? Render ???
-function render(){
-  var e=document.getElementById('secList');
-  if(!e)return;
-  var L=D.slice();
-  if(T==='strong')L=L.filter(function(s){return s.avg_score>=20});
-  if(T==='weak')L=L.filter(function(s){return s.avg_score<-20});
-  L.sort(function(a,b){return b.avg_score-a.avg_score});
-  e.innerHTML=L.map(function(s,i){
-    var v=s.avg_score,c2=sc(v),s3=sc2(v),sp=sparkSVG(s.chart,60,20);
-    var cc2=s.avg_change_pct>=0?'#34d399':'#f87171';
-    var ch=(s.avg_change_pct>=0?'+':'')+s.avg_change_pct.toFixed(2)+'%';
-    var p=Math.abs(v);if(p>100)p=100;
-    var c1=v>=20?'#ef4444':v>=-20?'#34d399':'#fbbf24';
-    var dhtml='';
-    if(s.divergence_stocks&&s.divergence_stocks.length)dhtml='<span class="brk-dot on">&#128269; '+s.divergence_stocks.length+'\u80a1\u5e95\u80cc\u79bb</span>';
-    ['buy','sell'].forEach(function(k){var n=(s.signals[k]||[]).length;if(n)dhtml+='<span class="brk-dot '+(k==='buy'?'on':'off')+'">'+(k==='buy'?'&#9650;':'&#9660;')+' '+n+'</span>'});
-    return'<div class="sec-card '+s3+'" onclick="showDetail('+(D.indexOf(s))+')"><div class="sec-top"><span class="sec-rank">#'+(L.indexOf(s)+1)+'</span><span class="sec-name">'+s.short_name+'</span><span class="sec-score '+c2+'">'+v.toFixed(1)+'</span></div><div class="sec-spark">'+sp+'<span class="sec-jg '+jc(s.judgment)+'">'+s.judgment+'</span><span class="sec-chg" style="color:'+cc2+'">'+ch+'</span></div><div class="sec-bar-wrap"><div class="sec-mbar"><div class="sec-mbar-f" style="width:'+p+'%;background:'+c1+'"></div></div></div>'+(dhtml?'<div class="sec-msg">'+dhtml+'</div>':'')+'<div class="sec-msg">'+renderSignals(s)+'</div></div>';
-  }).join('');
-}
-
-// ??? Detail ???
-function showDetail(idx){
-  var s=D[idx];if(!s)return;
-  document.getElementById('detail').classList.add('show');document.body.style.overflow='hidden';
-  document.getElementById('dtTitle').textContent=s.sector_name;
-  document.getElementById('dtScore').textContent=s.avg_score.toFixed(1);
-  document.getElementById('dtScore').style.color=cc(s.avg_score);
-
-  var d=s.score_distribution;
-  var dist='<div class="dist-box"><div class="dist" style="flex:1;text-align:center;padding:6px;border-radius:6px;background:rgba(52,211,153,0.08);color:#34d399;font-size:9px"><span style="font-size:18px;font-weight:800;display:block;margin-bottom:1px">'+d.buy+'</span>\u504f\u591a</div><div class="dist" style="flex:1;text-align:center;padding:6px;border-radius:6px;background:rgba(251,191,36,0.08);color:#fbbf24;font-size:9px"><span style="font-size:18px;font-weight:800;display:block;margin-bottom:1px">'+d.neutral+'</span>\u4e2d\u6027</div><div class="dist" style="flex:1;text-align:center;padding:6px;border-radius:6px;background:rgba(248,113,113,0.08);color:#f87171;font-size:9px"><span style="font-size:18px;font-weight:800;display:block;margin-bottom:1px">'+d.sell+'</span>\u504f\u7a7a</div></div>';
-
-  // Breakdown
-  var sb=s.score_breakdown||{},brkHtml='';
-  ['MACD_bull','MACD_red','MA5>MA10','MA20>MA60','divergence'].forEach(function(k){
-    var it=sb[k];if(!it||!it.total)return;
-    var pct=(it.count/it.total*100).toFixed(0);
-    var cls=it.count/it.total>=0.5?'good':it.count>0?'mid':'bad';
-    var lbl={'MACD_bull':'MACD\u591a\u5934','MACD_red':'MACD\u7ea2\u67f1','MA5>MA10':'5\u65e5>10\u65e5','MA20>MA60':'20\u65e5>60\u65e5','divergence':'\u5e95\u80cc\u79bb'}[k]||k;
-    brkHtml+='<div class="brk-item"><span class="brk-lbl">'+lbl+'</span><div class="brk-bar"><div class="brk-fill '+cls+'" style="width:'+pct+'%"></div></div><span class="brk-val" style="color:'+jgDotColor(it.count,it.total)+'">'+it.count+'/'+it.total+'</span></div>';
-  });
-
-  var chg=(s.avg_change_pct>=0?'+':'')+s.avg_change_pct.toFixed(2)+'%';
-  var chartSvg=sparkSVG(s.chart,320,80);
-
-  var lh='';if(s.leaders&&s.leaders.length){lh='<div class="dsec"><div class="dsec-h">&#127942; \u9886\u6da8</div>';s.leaders.forEach(function(st){lh+='<div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.03);font-size:10px"><div><span style="font-weight:500">'+st.name+'</span><span style="color:#475569;font-size:9px;margin-left:3px">'+st.code+'</span></div><span style="font-weight:700;color:'+cc(st.score)+'">'+st.score+'</span></div>'});lh+='</div>'}
-  var gh='';if(s.laggards&&s.laggards.length){gh='<div class="dsec"><div class="dsec-h">&#9888;&#65039; \u5f31\u52bf</div>';s.laggards.forEach(function(st){gh+='<div style="display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.03);font-size:10px"><div><span style="font-weight:500">'+st.name+'</span><span style="color:#475569;font-size:9px;margin-left:3px">'+st.code+'</span></div><span style="font-weight:700;color:'+cc(st.score)+'">'+st.score+'</span></div>'});gh+='</div>'}
-  var dv='';if(s.divergence_stocks&&s.divergence_stocks.length)dv='<div class="dsec"><div class="dsec-h">&#128269; \u5e95\u80cc\u79bb\u68c0\u6d4b</div><div style="font-size:10px;color:#34d399">'+s.divergence_stocks.join('\u3001')+' \u51fa\u73b0\u5e95\u80cc\u79bb</div></div>';
-
-  document.getElementById('dtBody').innerHTML=
-    '<div class="dsec"><div class="dsec-h">&#128202; \u7efc\u5408\u8bc4\u5206</div><div style="text-align:center;padding:6px 0"><span style="font-size:24px;font-weight:800;color:'+cc(s.avg_score)+'">'+s.avg_score.toFixed(1)+'</span><span style="font-size:10px;color:#475569;margin-left:4px">/ 100</span></div><div style="text-align:center;font-size:10px;color:#94a3b8;margin-top:2px">'+(s.judgment_text||s.judgment)+'</div>'+dist+
-    '<div style="display:flex;justify-content:space-between;margin-top:6px;font-size:9px;color:#475569"><span>&#8597; '+chg+'</span><span>&#128200; '+s.up_stocks+'/'+(s.up_stocks+s.down_stocks)+'\u6da8</span><span>&#128203; '+s.stock_count+'\u53ea</span></div></div>'+
-    (brkHtml?'<div class="dsec"><div class="dsec-h">&#128202; \u6280\u672f\u9762\u8bc4\u5206 <span style="font-size:8px;color:#475569;margin-left:auto">\u51af\u638c\u95e8\u52a8\u529b\u5b66</span></div>'+brkHtml+'</div>':'')+
-    (chartSvg?'<div class="dsec"><div class="dsec-h">&#128200; 60\u65e5\u8d70\u52bf</div><div style="text-align:center">'+chartSvg+'</div></div>':'')+
-    '<div class="dsec"><div class="dsec-h">&#128240; \u6d88\u606f\u9762\u4fe1\u53f7</div>'+renderSignalDetails(s)+'</div>'+
-    lh+gh+dv;
-}
-
-// ??? Methodology ???
-function loadMethodology(){
-  document.getElementById('methBody').innerHTML=
-    '<p style="margin-bottom:8px;color:#94a3b8">\u57fa\u4e8e\u51af\u638c\u95e8\u52a8\u529b\u5b66\u6280\u672f\u9762\u5206\u6790\u4f53\u7cfb\uff0c\u5bf9A\u80a1\u5404\u884c\u4e1a\u677f\u5757\u8fdb\u884c\u91cf\u5316\u8bc4\u5206\u3002</p>'+
-    '<h3>&#128202; \u8bc4\u5206\u8303\u56f4</h3>'+
-    '<p>\u6bcf\u4e2a\u677f\u5757\u5f97\u5206 -100 ~ +100\uff0c\u5206\u6570\u8d8a\u9ad8\u8868\u793a\u6280\u672f\u9762\u504f\u591a\u8d8a\u5f3a\u3002</p>'+
-    '<div style="display:flex;flex-direction:column;gap:4px;margin:6px 0">'+
-    '<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(239,68,68,0.08);border-radius:6px"><span style="font-size:14px;font-weight:800;color:#f87171">&#128293; \u5f3a\u52bf &#8805; 20</span><span style="font-size:9px;color:#64748b">\u591a\u5934\u4fe1\u53f7\u660e\u663e\uff0c\u6ce8\u610f\u8ffd\u6da8\u98ce\u9669</span></div>'+
-    '<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(251,191,36,0.08);border-radius:6px"><span style="font-size:14px;font-weight:800;color:#fbbf24">&#128202; \u4e2d\u6027 -20 ~ 20</span><span style="font-size:9px;color:#64748b">\u8d8b\u52bf\u4e0d\u660e\u786e\uff0c\u89c2\u671b\u4e3a\u4e3b</span></div>'+
-    '<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(52,211,153,0.08);border-radius:6px"><span style="font-size:14px;font-weight:800;color:#34d399">&#10052;&#65039; \u5f31\u52bf &lt; -20</span><span style="font-size:9px;color:#64748b">\u7a7a\u5934\u538b\u529b\u8f83\u5927\uff0c\u7b49\u5f85\u5e95\u90e8\u4fe1\u53f7</span></div>'+
-    '</div>'+
-    '<h3>&#128202; \u4e94\u5927\u6280\u672f\u6307\u6807</h3>'+
-    '<div class="dim-card"><h4>&#128200; MACD\u591a\u5934 (MACD_bull)</h4><p>DIF\u7ebf\u5728DEA\u7ebf\u4e4b\u4e0a\u7684\u80a1\u7968\u5360\u6bd4\u3002\u8861\u91cf\u677f\u5757\u5185\u591a\u5934\u8d8b\u52bf\u7684\u666e\u904d\u6027\u3002\u5360\u6bd4\u8d8a\u9ad8\uff0c\u8868\u793a\u8d8a\u591a\u6210\u5206\u80a1\u5904\u4e8e\u591a\u5934\u8d8b\u52bf\u3002</p></div>'+
-    '<div class="dim-card"><h4>&#128308; MACD\u7ea2\u67f1 (MACD_red)</h4><p>MACD\u503c\u5927\u4e8e0\u7684\u80a1\u7968\u5360\u6bd4\u3002\u7ea2\u67f1\u8868\u793a\u591a\u5934\u52a8\u80fd\u6b63\u5728\u805a\u96c6\uff0c\u5360\u6bd4\u8d8a\u9ad8\u8d8b\u52bf\u8d8a\u5f3a\u3002</p></div>'+
-    '<div class="dim-card"><h4>&#128200; \u77ed\u671f\u591a\u5934 (MA5>MA10)</h4><p>5\u65e5\u5747\u7ebf\u572810\u65e5\u5747\u7ebf\u4e4b\u4e0a\u7684\u80a1\u7968\u5360\u6bd4\u3002\u8861\u91cf\u77ed\u671f\u8d8b\u52bf\u5f3a\u5f31\uff0c\u5360\u6bd4\u8d8a\u9ad8\u77ed\u671f\u8d70\u52bf\u8d8a\u5f3a\u3002</p></div>'+
-    '<div class="dim-card"><h4>&#128200; \u4e2d\u671f\u591a\u5934 (MA20>MA60)</h4><p>20\u65e5\u5747\u7ebf\u572860\u65e5\u5747\u7ebf\u4e4b\u4e0a\u7684\u80a1\u7968\u5360\u6bd4\u3002\u8861\u91cf\u4e2d\u671f\u8d8b\u52bf\u65b9\u5411\uff0c\u5360\u6bd4\u8d8a\u9ad8\u4e2d\u671f\u8d70\u52bf\u8d8a\u7a33\u5b9a\u3002</p></div>'+
-    '<div class="dim-card"><h4>&#128269; \u5e95\u80cc\u79bb (divergence)</h4><p>\u4ef7\u683c\u521b\u65b0\u4f4e\u4f46MACD\u521b\u65b0\u9ad8\u7684\u80a1\u7968\u6570\u91cf\u3002\u5e95\u80cc\u79bb\u662f\u5f3a\u70c8\u7684\u53cd\u8f6c\u4fe1\u53f7\uff0c\u8d8a\u591a\u80a1\u7968\u51fa\u73b0\u5e95\u80cc\u79bb\uff0c\u677f\u5757\u53cd\u5f39\u53ef\u80fd\u6027\u8d8a\u5927\u3002</p></div>'+
-    '<h3>&#128240; \u6d88\u606f\u9762\u4fe1\u53f7\u5206\u7c7b</h3>'+
-    '<div style="display:flex;flex-direction:column;gap:4px;margin:6px 0">'+
-    '<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(52,211,153,0.08);border-radius:6px"><span style="font-size:12px;font-weight:700;color:#34d399">&#9650; \u4e70\u5165\u4fe1\u53f7</span><span style="font-size:9px;color:#64748b">\u591a\u5934\u4fe1\u53f7\u3001\u6280\u672f\u9762\u504f\u591a\u3001\u9f99\u5934\u5f3a\u52bf\u7b49</span></div>'+
-    '<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(248,113,113,0.08);border-radius:6px"><span style="font-size:12px;font-weight:700;color:#f87171">&#9660; \u5356\u51fa\u4fe1\u53f7</span><span style="font-size:9px;color:#64748b">\u591a\u80a1\u4e0b\u8dcc\u3001\u6280\u672f\u9762\u504f\u7a7a\u7b49</span></div>'+
-    '<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(251,191,36,0.08);border-radius:6px"><span style="font-size:12px;font-weight:700;color:#fbbf24">&#9888; \u98ce\u9669\u63d0\u793a</span><span style="font-size:9px;color:#64748b">\u9700\u8981\u8b66\u60d5\u7684\u98ce\u9669\u4fe1\u53f7</span></div>'+
-    '<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(96,165,250,0.08);border-radius:6px"><span style="font-size:12px;font-weight:700;color:#60a5fa">&#8505; \u4e2d\u6027\u4fe1\u606f</span><span style="font-size:9px;color:#64748b">\u53c2\u8003\u4fe1\u606f\uff0c\u4e0d\u5f71\u54cd\u65b9\u5411\u5224\u65ad</span></div>'+
-    '</div>'+
-    '<h3>&#128200; 60\u65e5\u8d70\u52bf</h3>'+
-    '<p>\u6bcf\u4e2a\u677f\u5757\u5361\u7247\u663e\u793a60\u65e5\u8d70\u52bf\u56fe\uff0c\u7eff\u8272\u4e3a\u6536\u76d8\u9ad8\u4e8e\u5f00\u76d8\uff0c\u7ea2\u8272\u4e3a\u6536\u76d8\u4f4e\u4e8e\u5f00\u76d8\u3002\u8be6\u60c5\u9875\u53ef\u67e5\u770b\u66f4\u5927\u5c3a\u5bf8\u7684\u8d70\u52bf\u56fe\u3002</p>';
-}
-
-loadData();
-loadMethodology();
-</script>
+<script>var sectors=[],tab="all";
+function sc(v){if(v>=80)return"pos";if(v>=60)return"neu";return"neg"}
+function cc(v){if(v>=80)return"#34d399";if(v>=60)return"#fbbf24";return"#f87171"}
+function jc(v){if(v==="强势")return"str";if(v==="弱势")return"wk";return"neu"}
+function rc(s){if(!s||!s.buy&&!s.sell&&!s.warning&&!s.info)return"none";return""}
+function rc2(s){if(s.buy&&s.buy.length)return"buy";if(s.sell&&s.sell.length)return"sell";if(s.warning&&s.warning.length)return"warn";if(s.info&&s.info.length)return"info";return"none"}
+function sparkSVG(data){if(!data||data.length<2)return'';var min=Infinity,max=-Infinity;data.forEach(function(d){if(d.c<min)min=d.c;if(d.c>max)max=d.c});var range=max-min||1;var w=60,h=20,pad=1;var pts=data.map(function(d,i){var x=pad+(w-2*pad)*i/(data.length-1);var y=h-pad-(h-2*pad)*(d.c-min)/range;return x.toFixed(1)+','+y.toFixed(1)}).join(' ');var color=data[data.length-1].c>=data[0].c?'#34d399':'#f87171';return'<svg viewBox="0 0 '+w+' '+h+'" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="'+color+'" stroke-width="1.2" points="'+pts+'"/></svg>'}
+function sparkCanvas(data,canvasId){if(!data||data.length<2)return;var c=document.getElementById(canvasId);if(!c)return;var ctx=c.getContext("2d");var w=c.width=240,h=c.height=80;ctx.clearRect(0,0,w,h);var min=Infinity,max=-Infinity;data.forEach(function(d){if(d.c<min)min=d.c;if(d.c>max)max=d.c});var range=max-min||1;var pad=4;ctx.beginPath();var up=data[data.length-1].c>=data[0].c;ctx.strokeStyle=up?"#34d399":"#f87171";ctx.lineWidth=1.5;data.forEach(function(d,i){var x=pad+(w-2*pad)*i/(data.length-1);var y=h-pad-(h-2*pad)*(d.c-min)/range;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.stroke();ctx.fillStyle="rgba(52,211,153,0.03)";ctx.beginPath();data.forEach(function(d,i){var x=pad+(w-2*pad)*i/(data.length-1);var y=h-pad-(h-2*pad)*(d.c-min)/range;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.lineTo(w-pad,h-pad);ctx.lineTo(pad,h-pad);ctx.closePath();ctx.fill()}
+function renderSignals(signals){if(!signals)return'';var html=[];var has=false;if(signals.buy&&signals.buy.length){has=true;html.push('<div class="signal-group sg-buy"><h4>🟢 买入信号</h4><ul>');signals.buy.forEach(function(s){html.push('<li>'+s+'</li>')});html.push('</ul></div>')}
+if(signals.sell&&signals.sell.length){has=true;html.push('<div class="signal-group sg-sell"><h4>🔴 卖出信号</h4><ul>');signals.sell.forEach(function(s){html.push('<li>'+s+'</li>')});html.push('</ul></div>')}
+if(signals.warning&&signals.warning.length){has=true;html.push('<div class="signal-group sg-warn"><h4>⚠️ 风险警告</h4><ul>');signals.warning.forEach(function(s){html.push('<li>'+s+'</li>')});html.push('</ul></div>')}
+if(signals.info&&signals.info.length){has=true;html.push('<div class="signal-group sg-info"><h4>ℹ️ 参考信息</h4><ul>');signals.info.forEach(function(s){html.push('<li>'+s+'</li>')});html.push('</ul></div>')}
+if(!has){html.push('<div style="color:#475569;font-size:10px;text-align:center;padding:12px">暂无信号</div>')}return html.join('')}
+function renderSignalDetails(signals){if(!signals)return'';var parts=[];if(signals.buy)signals.buy.forEach(function(s){parts.push('<span class="signal-tag buy">'+s+'</span>')});if(signals.sell)signals.sell.forEach(function(s){parts.push('<span class="signal-tag sell">'+s+'</span>')});if(signals.warning)signals.warning.forEach(function(s){parts.push('<span class="signal-tag warn">'+s+'</span>')});if(signals.info)signals.info.forEach(function(s){parts.push('<span class="signal-tag info">'+s+'</span>')});return parts.join('')}
+function showDetail(idx){var s=sectors[idx];if(!s)return;document.getElementById("detail").classList.add("show");document.getElementById("dtTitle").textContent=s.sector_name||s.short_name;document.getElementById("dtScore").textContent=s.avg_score;document.getElementById("dtScore").className="detail-sc "+sc(s.avg_score);
+var b=document.getElementById("dtBody");var h=[];
+// Score breakdown
+h.push('<div class="detail-sec"><h3>技术指标详分</h3>');var sb=s.score_breakdown||{};var items=[["MACD多头","MACD_bull"],["MACD红柱","MACD_red"],["MA5>MA10","MA5>MA10"],["MA20>MA60","MA20>MA60"],["底背离","divergence"]];items.forEach(function(item){var key=item[1];var v=sb[key];if(!v){h.push('<div class="score-row"><span class="lb">'+item[0]+'</span><span class="vl wa">N/A</span></div>');return}var pct=v.total>0?(v.count/v.total*100):0;var cls=pct>=70?"ok":(pct>=40?"wa":"ng");h.push('<div class="score-row"><span class="lb">'+item[0]+'</span><span class="vl '+cls+'">'+v.count+'/'+v.total+'</span></div>')});
+h.push('</div>');
+// Combined comparison
+h.push('<div class="detail-sec"><h3>综合对比</h3>');h.push('<div class="cmp-card">');h.push('<h4>冯掌门动力学评分</h4>');h.push('<div class="cmp-bar-wrap"><span class="cmp-lb">技术面</span><div class="cmp-bar"><div class="cmp-bar-f" style="width:'+(s.avg_score||0)+'%;background:'+cc(s.avg_score)+'"></div></div><span class="cmp-vl" style="color:'+cc(s.avg_score)+'">'+(s.avg_score||0)+'</span></div>');
+var rt=s.radar_total||0;h.push('<h4 style="margin-top:8px">板块雷达扫描</h4>');h.push('<div class="cmp-bar-wrap"><span class="cmp-lb">雷达总分</span><div class="cmp-bar"><div class="cmp-bar-f" style="width:'+(rt/30*100)+'%;background:#818cf8"></div></div><span class="cmp-vl" style="color:#818cf8">'+rt.toFixed(1)+'</span></div>');
+var cs=s.combined_score||0;h.push('<div class="cmp-bar-wrap"><span class="cmp-lb">综合评分</span><div class="cmp-bar"><div class="cmp-bar-f" style="width:'+cs+'%;background:#fbbf24"></div></div><span class="cmp-vl" style="color:#fbbf24">'+cs.toFixed(1)+'</span></div>');h.push('</div>');
+var cj=s.combined_judgment||'';if(cj){h.push('<div style="font-size:10px;color:#64748b;margin-top:4px">综合判断: <span style="color:'+cc(cs)+'">'+cj+'</span></div>')}
+h.push('</div>');
+// Chart
+h.push('<div class="detail-sec"><h3>60日走势</h3><div class="chart-wrap"><canvas id="dtChart"></canvas></div></div>');
+// Radar details if available
+var rd=s.radar_score;if(rd&&Object.keys(rd).length){h.push('<div class="detail-sec"><h3>雷达维度详解</h3>');Object.keys(rd).forEach(function(k){var v=rd[k];var pct=v/5*100;h.push('<div class="cmp-bar-wrap"><span class="cmp-lb">'+k+'</span><div class="cmp-bar"><div class="cmp-bar-f" style="width:'+pct+'%;background:#818cf8;opacity:'+(0.3+v/5*0.7)+'"></div></div><span class="cmp-vl" style="color:#818cf8">'+v.toFixed(1)+'</span></div>')});h.push('</div>')}
+// Signals
+var sig=s.signals;if(sig){h.push('<div class="detail-sec"><h3>信号详情</h3>');h.push(renderSignals(sig));h.push('</div>')}
+// Leaders & Laggards
+h.push('<div class="detail-sec"><h3>龙头股</h3>');if(s.leaders&&s.leaders.length){s.leaders.forEach(function(st){h.push('<div class="stock-row"><span class="nm">'+st.name+'</span><span class="st" style="color:'+cc(st.score)+'">'+st.score+'分</span></div>')})}else{h.push('<div style="color:#475569;font-size:10px">无数据</div>')}
+h.push('</div>');
+h.push('<div class="detail-sec"><h3>尾巴股</h3>');if(s.laggards&&s.laggards.length){s.laggards.forEach(function(st){h.push('<div class="stock-row"><span class="nm">'+st.name+'</span><span class="st" style="color:'+cc(st.score)+'">'+st.score+'分</span></div>')})}else{h.push('<div style="color:#475569;font-size:10px">无数据</div>')}
+h.push('</div>');
+// News/messages if available
+if(s.news&&s.news.length){h.push('<div class="detail-sec"><h3>消息面</h3>');s.news.forEach(function(n){h.push('<div class="news-item"><span class="nd">'+(n.date||"")+'</span><span class="nt">'+(n.title||n.text||"")+'</span></div>')});h.push('</div>')}
+b.innerHTML=h.join('');
+setTimeout(function(){sparkCanvas(s.chart,"dtChart")},50)}
+function closeDetail(){document.getElementById("detail").classList.remove("show")}
+function closeMeth(){document.getElementById("methodo").classList.remove("show")}
+function switchPage(pg){document.querySelectorAll(".bnav-it").forEach(function(e){e.classList.toggle("act",e.dataset.page===pg)});document.getElementById("secList").style.display=pg==="sectors"?"":"none";document.getElementById("detail").style.display="none";if(pg==="methodo"&&!document.getElementById("methodo").classList.contains("show")){document.getElementById("methodo").classList.add("show")}else{document.getElementById("methodo").classList.remove("show")}}
+function switchTab(t){tab=t;document.querySelectorAll(".tab").forEach(function(e){e.classList.toggle("act",e.dataset.tab===t)});render()}
+function render(){var list=document.getElementById("secList");var filtered=sectors.slice();if(tab==="strong")filtered=filtered.filter(function(s){return s.judgment==="强势"||s.avg_score>=65});if(tab==="weak")filtered=filtered.filter(function(s){return s.judgment==="弱势"||s.avg_score<40});filtered.sort(function(a,b){return b.avg_score-a.avg_score});
+if(filtered.length===0){list.innerHTML='<div class="loading" style="color:#64748b">暂无数据</div>';return}
+var h=[];filtered.forEach(function(s,i){var r=filtered.indexOf(s)+1;var jg=s.judgment||"中性";var chg=s.avg_change_pct;var chgStr=chg!=null?(chg>=0?"+":"")+chg.toFixed(1)+"%":"";var chgCls=chg!=null?(chg>=0?"pos":"neg"):"";var signals=s.signals||{};var msgHtml="";var primaryType=rc2(signals);if(primaryType!=="none"){var labels={buy:"买入",sell:"卖出",warn:"警告",info:"参考"};msgHtml='<span class="msg-tag msg-'+primaryType+'">'+(labels[primaryType]||"")+'</span>'}var hasDetail=signals.buy&&signals.buy.length||signals.sell&&signals.sell.length||signals.warning&&signals.warning.length;if(!hasDetail)msgHtml='<span class="msg-tag msg-none">无信号</span>'
+var rt=s.radar_total;var cs=s.combined_score;var radarHtml="";if(rt!=null){radarHtml='<div class="sec-radar"><span class="rt">雷达:'+rt.toFixed(1)+'</span><span class="rt2">综合:'+(cs?cs.toFixed(1):"N/A")+'</span></div>'}
+h.push('<div class="sec-card sc-'+jc(jg)+'" onclick="showDetail('+r+')"><div class="sec-top"><span class="sec-rank">#'+r+'</span><span class="sec-name">'+(s.sector_name||s.short_name)+'</span><span class="sec-score '+sc(s.avg_score)+'">'+s.avg_score+'</span></div>');
+h.push('<div class="sec-spark">'+sparkSVG(s.chart)+'<span class="sec-jg jg-'+jc(jg)+'">'+jg+'</span><span class="sec-chg" style="color:'+chgCls+'">'+chgStr+'</span></div>');
+h.push('<div class="sec-bar-wrap"><div class="sec-mbar"><div class="sec-mbar-f" style="width:'+s.avg_score+'%;background:'+cc(s.avg_score)+'"></div></div></div>');
+h.push('<div class="sec-msg">'+msgHtml+'</div>');
+h.push(radarHtml);
+h.push('</div>')});
+list.innerHTML=h.join('')}
+function loadData(){var x=new XMLHttpRequest();x.open("GET","/api/sectors?"+Date.now(),true);x.onload=function(){if(x.status===200){try{var d=JSON.parse(x.responseText);sectors=d.sectors||[];document.getElementById("loading").innerHTML="";document.getElementById("freshBadge").textContent=sectors.length+"个板块";document.getElementById("freshBadge").className="fresh-badge ok";render();updateStats()}catch(e){document.getElementById("secList").innerHTML='<div class="error-msg">数据解析失败</div>'}}else{document.getElementById("secList").innerHTML='<div class="error-msg">数据加载失败: '+x.status+'</div>'}};x.onerror=function(){document.getElementById("secList").innerHTML='<div class="error-msg">网络错误</div>'};x.send()}
+function updateStats(){var str=sectors.filter(function(s){return s.judgment==="强势"||s.avg_score>=65});var wk=sectors.filter(function(s){return s.judgment==="弱势"||s.avg_score<40});var mid=sectors.length-str.length-wk.length;document.getElementById("stats").innerHTML='<span class="stat stat-all">全部: '+sectors.length+'</span><span class="stat stat-str">强势: '+str.length+'</span><span class="stat stat-mid">中性: '+mid+'</span><span class="stat stat-wk">弱势: '+wk.length+'</span>'}
+function doRefresh(){document.getElementById("freshBadge").textContent="刷新中...";document.getElementById("freshBadge").className="fresh-badge";loadData()}
+function loadMethodology(){var h=[];h.push('<div class="meth-card"><h4 style="color:#818cf8">冯掌门动力学</h4><p>以技术指标为基础，通过MACD、均线系统、底背离等多维度评分，识别板块中的多空力量对比。分数范围0-100。</p></div>');
+h.push('<div class="dim-card"><h4 style="color:#fbbf24">板块雷达（0-30分）</h4><p>从位置安全度、价格动量、资金潜伏度、时效紧迫度、催化确定性、产业链匹配6个维度扫描左侧信号。</p></div>');
+h.push('<div class="dim-card"><h4 style="color:#34d399">综合评分</h4><p>综合 = 冯掌门(50%) + 雷达(50%)，0-100分。50分+建议关注，70分+强信号。</p></div>');
+h.push('<h2 style="font-size:13px;margin-top:16px">信号分类</h2>');
+h.push('<div style="display:flex;flex-direction:column;gap:4px;margin:6px 0">');
+h.push('<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(52,211,153,0.08);border-radius:6px"><span style="font-size:12px;font-weight:700;color:#34d399">买入</span><span style="font-size:9px;color:#64748b">多头信号、技术面偏多、龙头强势</span></div>');
+h.push('<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(248,113,113,0.08);border-radius:6px"><span style="font-size:12px;font-weight:700;color:#f87171">卖出</span><span style="font-size:9px;color:#64748b">多股下跌、技术面偏空</span></div>');
+h.push('<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(251,191,36,0.08);border-radius:6px"><span style="font-size:12px;font-weight:700;color:#fbbf24">风险</span><span style="font-size:9px;color:#64748b">需要警惕的风险信号</span></div>');
+h.push('<div style="display:flex;align-items:center;gap:6px;padding:6px;background:rgba(96,165,250,0.08);border-radius:6px"><span style="font-size:12px;font-weight:700;color:#60a5fa">中性</span><span style="font-size:9px;color:#64748b">参考信息</span></div>');
+h.push('</div>');
+var mb=document.getElementById("methBody");if(mb)mb.innerHTML=h.join('')}
+loadData();loadMethodology();</script>
 </body>
 </html>
